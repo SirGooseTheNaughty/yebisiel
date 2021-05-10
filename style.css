@@ -16,7 +16,7 @@ body {
 }
 .configurator {
     width: max-content;
-    margin: 0 auto;
+    margin: 130px auto 110px auto;
     font-family: sans-serif;
 }
 .content {
