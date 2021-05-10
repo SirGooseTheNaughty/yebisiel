@@ -1,0 +1,574 @@
+:root {
+    --fontBlack: #333333;
+    --fontWhite: #F2F2F2;
+    --fontGray: #828282;
+
+    --homeColor: #FFCC99;
+    --liteColor: #D6E5B1;
+    --avanColor: #BFBAC6;
+
+    --orderBtnColor: #F08D46;
+}
+
+/* main */
+body {
+    padding-top: 50px;
+}
+.configurator {
+    width: max-content;
+    margin: 0 auto;
+    font-family: sans-serif;
+}
+.content {
+    display: grid;
+    grid-template-rows: 70px 677px;
+    grid-template-columns: 660px 500px;
+    grid-template-areas:
+        "tabs ."
+        "left right";
+    color: var(--fontBlack);
+    font-size: 18px;
+}
+
+/* segments */
+.tabs {
+    grid-area: tabs;
+    display: flex;
+    align-items: flex-end;
+    height: 71px;
+}
+.left {
+    background-color: var(--mainColor);
+    grid-area: left;
+    border-bottom-left-radius: 15px;
+    padding: 41px 48px;
+}
+.right {
+    background-color: var(--lighterColor);
+    grid-area: right;
+    border-bottom-right-radius: 15px;
+    border-top-right-radius: 15px;
+    padding: 103px 51px 0 51px;
+}
+
+/* tabs */
+.tab {
+    width: 220px;
+    height: 90%;
+    border-radius: 15px 15px 0 0;
+    display: grid;
+    place-items: center;
+    color: white;
+    font-size: 24px;
+    transition: height 0.4s ease;
+    cursor: pointer;
+}
+.tabActive {
+    height: 100%;
+    font-weight: bold;
+}
+.tabHome {
+    background-color: var(--homeColor);
+}
+.tabLite {
+    background-color: var(--liteColor);
+}
+.tabAvan {
+    background-color: var(--avanColor);
+}
+
+/* left */
+.tagline {
+    color: var(--fontBlack);
+    font-size: 24px;
+    margin-bottom: 34px;
+}
+.numDishes {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 35px;
+    gap: 0 15px;
+}
+.dish {
+    position: relative;
+    width: 100%;
+    height: 94px;
+    background-color: var(--lighterColor);
+    border-radius: 15px;
+    display: grid;
+    place-items: center;
+    text-align: center;
+    padding: 0 28px;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+.dish:hover {
+    background-color: var(--darkerColor);
+}
+.dish.dishActive {
+    background-color: var(--darkColor);
+    color: var(--fontWhite);
+}
+.dish.hit::after {
+    content: 'HIT';
+    position: absolute;
+    top: 0;
+    right: 13px;
+    width: 48px;
+    height: 26px;
+    transform: translateY(-50%);
+    border-radius: 13px;
+    color: var(--fontWhite);
+    font-size: 14px;
+    background-color: var(--darkColor);
+    display: grid;
+    place-items: center;
+}
+.dish.dishActive.hit::after {
+    background-color: var(--lighterColor);
+    color: var(--fontBlack);
+}
+.menuSampleCont {
+    display: grid;
+    place-items: center baseline;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 35px 262px;
+    grid-template-areas:
+        "text button"
+        "pics pics";
+    margin-bottom: 34px;
+}
+.menuSampleCont .menuSampleText {
+    grid-area: text;
+}
+.menuSampleCont .nextButton {
+    grid-area: button;
+}
+.menuSampleCont .pics {
+    grid-area: pics;
+}
+.nextButton {
+    place-self: end;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    cursor: pointer;
+}
+.nutrition {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.textAndSelect {
+    margin-bottom: 20px;
+}
+.nextButton .button {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: var(--lighterColor);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 11px;
+}
+.nextButton:hover .button{
+    background-color: var(--darkerColor);
+}
+.pics {
+    place-self: baseline;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 163px);
+    grid-template-rows: repeat(2, 121px);
+    grid-gap: 20px 32px;
+    padding-top: 20px;
+}
+.pic {
+    width: 100%;
+    height: 100%;
+    border-radius: 27px;;
+    box-shadow: 0px 4px 5px 0px rgba(135, 88, 53, 0.5);
+}
+.nutrition {
+    background-color: var(--nutritionColor);
+    padding: 9px 18px;
+}
+
+/* right */
+.days {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 35px;
+}
+.day {
+    width: 188px;
+    height: 97px;
+    border-radius: 15px;
+    background-color: var(--mainColor);
+    display: grid;
+    place-items: center;
+    align-items: center;
+    cursor: pointer;
+}
+.day.active {
+    background-color: var(--darkColor);
+    color: var(--fontWhite);
+    font-weight: bolder;
+}
+/* checkboxex */
+.paymentMethod,
+.numDaysSelect {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 40px;
+    cursor: pointer;
+}
+.paymentMethod::before,
+.numDaysSelect::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: var(--mainColor);
+}
+.paymentMethod.checked::after,
+.numDaysSelect.checked::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(4px, 4px);
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: var(--darkColor);
+}
+.numDaysSelect:first-child {
+    margin-bottom: 14px;
+}
+.yourProfit {
+    text-align: end;
+    color: var(--orderBtnColor);
+    font-size: 14px;
+}
+.numDays {
+    margin-bottom: 22px;
+}
+.line {
+    width: 100%;
+    height: 1px;
+    background-color: var(--darkColor);
+    margin-bottom: 34px;
+}
+.paymentMethod:first-child {
+    margin-bottom: 14px;
+}
+.payment {
+    margin-bottom: 34px;
+}
+/* checkout */
+.phone {
+    width: 100%;
+    height: 53px;
+    background-color: white;
+    color: var(--fontGray);
+    border: none;
+    padding: 16px 40px;
+    box-sizing: border-box;
+    margin-bottom: 46px;
+}
+.button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.button button {
+    width: 188px;
+    height: 58px;
+    background-color: var(--orderBtnColor);
+    color: var(--fontWhite);
+    text-transform: uppercase;
+    font-weight: bold;
+    border: none;
+    border-radius: 15px;
+    font-size: 20px;
+    cursor: pointer;
+}
+.confidential {
+    color: var(--fontGray);
+    font-size: 14px;
+    font-weight: light;
+    width: 195px;
+}
+
+@media screen and (max-width: 1200px) {
+    .content {
+        grid-template-columns: 540px 400px;
+    }
+    .left, .right {
+        padding-left: 45px;
+        padding-right: 45px;
+    }
+    .right {
+        background-color: var(--lighterColor);
+        grid-area: right;
+        border-bottom-right-radius: 15px;
+        border-top-right-radius: 15px;
+        padding: 103px 51px 0 51px;
+    }
+    .tagline {
+        font-size: 22px;
+    }
+    .tab {
+        font-size: 20px;
+    }
+    .numDishes {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px 0;
+        justify-content: space-between;
+        margin-bottom: 35px;
+    }
+    .numDishes {
+        gap: 21px 17px;
+    }
+    .dish {
+        width: 214px;
+        height: 60px;
+        padding: 0;
+    }
+    .menuSampleCont {
+        grid-template-rows: 35px 1fr;
+    }
+    .pics {
+        grid-template-columns: repeat(3, 134px);
+        grid-template-rows: repeat(2, 101px);
+        grid-gap: 21px 21px;
+        padding-top: 16px;
+    }
+    .day {
+        width: 142px;
+    }
+    .numDaysSelect:last-child {
+        margin-bottom: 4px;
+    }
+    .phone {
+        margin-bottom: 36px;
+    }
+    .button {
+        flex-flow: column;
+        align-items: flex-start;
+    }
+    .confidential {
+        width: 230px;
+    }
+}
+
+@media screen and (max-width: 960px) {
+    .content {
+        grid-template-rows: 70px 1fr 560px;
+        grid-template-columns: 620px;
+        grid-template-areas:
+            "tabs"
+            "left"
+            "right";
+    }
+    .left {
+        border-bottom-left-radius: 0;
+        height: max-content;
+    }
+    .right {
+        padding-top: 40px;
+        border-bottom-left-radius: 15px;
+        border-top-right-radius: 0;
+    }
+    .numDishes {
+        gap: 22px 21px;
+    }
+    .dish {
+        width: 250px;
+    }
+    .menuSampleCont {
+        grid-template-rows: 35px 1fr;
+        margin-bottom: 21px;
+    }
+    .pics {
+        grid-template-columns: repeat(3, 160px);
+        grid-template-rows: 122px;
+        grid-gap: 20px 18px;
+    }
+    .day {
+        width: 250px;
+        height: 60px;
+    }
+    .button {
+        flex-flow: row;
+        align-items: center;
+    }
+    .button button {
+        width: 250px;
+        height: 60px;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .content {
+        grid-template-rows: 52px 1fr 536px;
+        grid-template-columns: 460px;
+    }
+    .left, .right {
+        padding-left: 28px;
+        padding-right: 28px;
+    }
+    .left {
+        padding-top: 30px;
+    }
+    .tabs {
+        height: 52px;
+    }
+    .tab {
+        font-size: 18px;
+    }
+    .tagline {
+        font-size: 18px;
+    }
+    .dish {
+        width: 190px;
+        height: 54px;
+    }
+    .menuSampleCont {
+        grid-template-rows: 35px 1fr;
+        margin-bottom: 26px;
+    }
+    .pics {
+        grid-template-columns: repeat(3, 124px);
+        grid-template-rows: 95px;
+        grid-gap: 16px 14px;
+        padding-top: 16px;
+    }
+    .nutrition {
+        font-size: 16px;;
+    }
+    .day {
+        width: 190px;
+        height: 54px;
+    }
+    .phone {
+        margin-bottom: 32px;
+    }
+    .button {
+        flex-flow: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .button button, .confidential {
+        width: 190px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .content {
+        grid-template-rows: 45px 1fr 651px;
+        grid-template-columns: 300px;
+    }
+    .left, .right {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+    .tabs {
+        margin-bottom: 40px;
+    }
+    .tabs {
+        height: 45px;
+    }
+    .tab {
+        font-size: 17px;
+    }
+    .tagline {
+        text-align: center;
+    }
+    .numDishes {
+        gap: 13px 0;
+    }
+    .dish {
+        width: 100%;
+        font-size: 16px;
+    }
+    .menuSampleCont {
+        grid-template-rows: auto 1fr auto;
+        grid-template-columns: 100%;
+        grid-template-areas:
+            "text"
+            "pics"
+            "button";
+        margin-bottom: 35px;
+        place-items: center center;
+    }
+    .pics {
+        grid-template-columns: repeat(2, 126px);
+        grid-template-rows: 97px;
+        grid-gap: 16px 15px;
+        padding-top: 23px;
+    }
+    .nextButton {
+        padding-top: 23px;
+    }
+    .dish.hit::after {
+        top: 0;
+        right: 0;
+        transform: translate(20%, -10%);
+    }
+    .menuSampleCont .nextButton {
+        place-self: center center;
+        transform: translateX(15px)
+    }
+    .nutrition {
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        height: 54px;
+        padding: 8px 0;
+        box-sizing: border-box;
+    }
+    .nutrition .text {
+        font-weight: bolder;
+    }
+    .days {
+        display: flex;
+        flex-flow: column;
+        gap: 13px 0;
+    }
+    .day {
+        width: 100%;
+    }
+    .numDays {
+        display: flex;
+        flex-flow: column;
+    }
+    .numDaysSelect, .paymentMethod, .phone {
+        font-size: 16px;
+    }
+    .yourProfit {
+        width: 100px;
+        align-self: flex-end;
+    }
+    .payment, .phone {
+        margin-bottom: 28px;
+    }
+    .button {
+        flex-flow: column;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .button button, .confidential {
+        width: 100%;
+    }
+    .confidential {
+        text-align: center;
+    }
+}
