@@ -298,11 +298,12 @@ body {
     border-radius: 15px;
     font-size: 20px;
     cursor: pointer;
+    box-sizing: border-box;
 }
 .confidential {
     color: var(--fontGray);
     font-size: 14px;
-    font-weight: light;
+    font-weight: lighter;
     width: 195px;
 }
 
@@ -366,6 +367,7 @@ body {
     }
     .confidential {
         width: 230px;
+        margin: 14px 0;
     }
 }
 
@@ -514,6 +516,10 @@ body {
         grid-template-rows: 97px;
         grid-gap: 16px 15px;
         padding-top: 23px;
+    }
+    .pic {
+        width: 126px;
+        height: 97px;
     }
     .nextButton {
         padding-top: 23px;
