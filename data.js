@@ -36,6 +36,7 @@ const payment = {
 };
 const phone = document.querySelector('.phone');
 const orderBtn = document.querySelector('#order');
+const orderInfoLink = document.querySelector('.orderInfo');
 const tagline = document.querySelector('.tagline');
 const picElement = (url) => {
     return `<img src="${url}" alt="dish example" class="pic">`;

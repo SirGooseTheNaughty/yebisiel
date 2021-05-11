@@ -129,6 +129,12 @@ function redrawDaytags () {
     }
 }
 
+function resetOrderInfo () {
+    const { tab, numDishes, daysSelection, numDays } = state;
+    const price = prices[tab][numDishes][daysSelection][numDays];
+    orderInfoLink.setAttribute('href', `#order:${dict.menus[tab]}, ${dict.numDishes[numDishes]} ${dict.numDays[numDays][daysSelection]}=${price}`);
+}
+
 function setOrderBtnActivity () {
     if (!state.phone) {
         return;
@@ -157,6 +163,7 @@ function clickTab (tabId) {
     setActiveNumDishes();
     redrawDishesExamples();
     redrawPrices();
+    resetOrderInfo();
 }
 
 function clickNumDishes (numDishes) {
@@ -164,6 +171,7 @@ function clickNumDishes (numDishes) {
     setActiveNumDishes();
     redrawDishesExamples();
     redrawPrices();
+    resetOrderInfo();
 }
 
 function clickNext () {
@@ -176,11 +184,13 @@ function clickDaysSelect (daysId) {
     setActiveDays();
     redrawDaytags();
     redrawPrices();
+    resetOrderInfo();
 }
 
 function clickNumDays (numDays) {
     state.set('numDays', numDays);
     setActiveNumDays();
+    resetOrderInfo();
 }
 
 function clickPaymentMethod (method) {
@@ -189,7 +199,7 @@ function clickPaymentMethod (method) {
 }
 
 function changePhoneNumber () {
-    state.set('phone', this.value);
+    state.set('phone', this.value || phone.value);
     setOrderBtnActivity();
 }
 
