@@ -1,7 +1,14 @@
-let basket, priceField, phoneField, menuField, numDishesField, numDaysField, paumentCash, paumentCard, dict;
+let basket, priceField, phoneField, menuField, numDishesField, numDaysField, paumentCash, paumentCard, dict, submit;
 
-setTimeout(() => {
+const int = setInterval(() => {
     basket = document.querySelector('#rec313869959');
+    if (basket) {
+        clearInterval(int);
+        setBasketConnection();
+    }
+}, 500);
+
+function setBasketConnection () {
     priceField = basket.querySelector('.t706__cartwin-prodamount');
     phoneField = basket.querySelector('[data-input-lid="1496239459190"] input');
     menuField = basket.querySelector('[data-input-lid="1602789521102"] input');
@@ -9,6 +16,7 @@ setTimeout(() => {
     numDaysField = basket.querySelector('[data-input-lid="1620733232870"] input');
     paymentCash = basket.querySelector('[name="paymentsystem"][value="cash"]');
     paymentCard = basket.querySelector('[name="paymentsystem"][value="cloudpayments"]');
+    submit = basket.querySelector('.t-submit');
     
     dict = {
         menus: {
@@ -33,7 +41,7 @@ setTimeout(() => {
             }
         },
     }
-}, 2000)
+}
     
 function fillBasket () {
     const { tab, numDishes, daysSelection, numDays, payment, phone } = state;

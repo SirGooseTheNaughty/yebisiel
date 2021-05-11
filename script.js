@@ -130,6 +130,9 @@ function redrawDaytags () {
 }
 
 function setOrderBtnActivity () {
+    if (!state.phone) {
+        return;
+    }
     if (state.phone.split('').indexOf('_') === -1) {
         orderBtn.classList.add('active');
         orderBtn.addEventListener('click', handleOrder);
