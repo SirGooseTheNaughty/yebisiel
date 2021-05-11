@@ -64,22 +64,7 @@ function fillBasket () {
         paymentCash.setAttribute('checked', 'checked');
         paymentCard.removeAttribute('checked');
     }
-    // appendProduct(price, tab, numDishes, daysSelection, numDays);
-    // submit.click();
-}
-
-function appendProduct (price, tab, numDishes, daysSelection, numDays) {
-    $(productsCont).append(
-        `
-            <div class="t706__product" data-cart-product-i="0">
-                <div class="t706__product-title t-descr t-descr_sm">
-                    <a style="color: inherit">${dict.menus[tab]}, ${dict.numDishes[numDishes]} ${dict.numDays[numDays][daysSelection]}</a>
-                </div>
-                <div class="t706__product-plusminus t-descr t-descr_sm">
-                    <span class="t706__product-quantity">1</span>
-                </div>
-                <div class="t706__product-amount t-descr t-descr_sm">${price}&nbsp;р.</div>
-            </div>
-        `
-    )
+    setTimeout(() => {
+        submit.click();
+    }, 500);
 }
