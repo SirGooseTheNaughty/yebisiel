@@ -135,20 +135,20 @@ function resetOrderInfo () {
     orderInfoLink.setAttribute('href', `#order:${orderDict.menus[tab]}, ${orderDict.numDishes[numDishes]} ${orderDict.numDays[numDays][daysSelection]}=${price}`);
 }
 
-function setOrderBtnActivity () {
-    if (!state.phone) {
-        return;
-    }
-    if (state.phone.split('').indexOf('_') === -1) {
-        orderBtn.classList.add('active');
-        orderBtn.addEventListener('click', handleOrder);
-        orderInfoLink.style.pointerEvents = 'auto';
-    } else {
-        orderBtn.classList.remove('active');
-        orderBtn.removeEventListener('click', handleOrder);
-        orderInfoLink.style.pointerEvents = 'none';
-    }
-}
+// function setOrderBtnActivity () {
+//     if (!state.phone) {
+//         return;
+//     }
+//     if (state.phone.split('').indexOf('_') === -1) {
+//         orderBtn.classList.add('active');
+//         orderBtn.addEventListener('click', handleOrder);
+//         orderInfoLink.style.pointerEvents = 'auto';
+//     } else {
+//         orderBtn.classList.remove('active');
+//         orderBtn.removeEventListener('click', handleOrder);
+//         orderInfoLink.style.pointerEvents = 'none';
+//     }
+// }
 
 function handleOrder () {
     console.log('order: ', state);
@@ -202,7 +202,7 @@ function clickPaymentMethod (method) {
 
 function changePhoneNumber () {
     state.set('phone', this.value || phone.value);
-    setOrderBtnActivity();
+    // setOrderBtnActivity();
 }
 
 // обработчики кликов
@@ -246,4 +246,16 @@ changePhoneNumber();
 resetOrderInfo();
 
 // phone mask
-Inputmask({"mask": "+7 (999) 999-99-99"}).mask(phone);
+// Inputmask({"mask": "+7 (999) 999-99-99"}).mask(phone);
+$(phone).inputmask("+7 (999) 999-99-99", {
+    "oncomplete": function () {
+        orderBtn.classList.add('active');
+        orderBtn.addEventListener('click', handleOrder);
+        orderInfoLink.style.pointerEvents = 'auto';
+    },
+    "onincomplete": function () {
+        orderBtn.classList.remove('active');
+        orderBtn.removeEventListener('click', handleOrder);
+        orderInfoLink.style.pointerEvents = 'none';
+    } 
+});
