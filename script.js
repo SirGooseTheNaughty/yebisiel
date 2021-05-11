@@ -141,6 +141,7 @@ function setOrderBtnActivity () {
 
 function handleOrder () {
     console.log('order: ', state);
+    fillBasket();
 }
 
 // функции-обработчики
