@@ -244,6 +244,7 @@ $(phone).on('input', changePhoneNumber);
 redrawDishesExamples();
 changePhoneNumber();
 resetOrderInfo();
+phone.value = '';
 
 // phone mask
 // Inputmask({"mask": "+7 (999) 999-99-99"}).mask(phone);
