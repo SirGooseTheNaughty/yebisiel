@@ -32,7 +32,7 @@ const dict = {
 }
 
 function fillBasket () {
-    const { tab, numDishes, daysSelection, numDays, daysSelection, payment, phone } = state;
+    const { tab, numDishes, daysSelection, numDays, payment, phone } = state;
     const price = prices[tab][numDishes][daysSelection][numDays];
     priceField.innerHTML = price;
     phoneField.innerHTML = phone;
