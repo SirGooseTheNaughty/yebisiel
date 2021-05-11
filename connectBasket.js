@@ -1,4 +1,4 @@
-let basket, priceField, phoneField, menuField, numDishesField, numDaysField, paumentCash, paumentCard, dict, submit, productsCont;
+let basket, priceField, phoneField, menuField, numDishesField, numDaysField, paumentCash, paumentCard, dict, submit, productsCont, paymentMethod;
 
 const int = setInterval(() => {
     basket = document.querySelector('#rec313869959');
@@ -14,6 +14,7 @@ function setBasketConnection () {
     menuField = basket.querySelector('[data-input-lid="1602789521102"] input');
     numDishesField = basket.querySelector('[data-input-lid="1620733210076"] input');
     numDaysField = basket.querySelector('[data-input-lid="1620733232870"] input');
+    paymentMethodField = basket.querySelector('[data-input-lid="1620740580240"] input');
     paymentCash = basket.querySelector('[name="paymentsystem"][value="cash"]');
     paymentCard = basket.querySelector('[name="paymentsystem"][value="cloudpayments"]');
     submit = basket.querySelector('.t-submit');
@@ -41,6 +42,10 @@ function setBasketConnection () {
                 each: 'на 28 дней'
             }
         },
+        paymentMethod: {
+            card: 'оплата онлайн',
+            cash: 'оплата курьеру при получении'
+        }
     }
 }
     
@@ -52,6 +57,7 @@ function fillBasket () {
     menuField.value = dict.menus[tab];
     numDishesField.value = dict.numDishes[numDishes];
     numDaysField.value = dict.numDays[numDays][daysSelection];
+    paymentMethodField.value = dict.paymentMethod[payment];
     if (payment === 'card') {
         paymentCash.removeAttribute('checked');
         paymentCard.setAttribute('checked', 'checked');
@@ -59,8 +65,8 @@ function fillBasket () {
         paymentCash.setAttribute('checked', 'checked');
         paymentCard.removeAttribute('checked');
     }
-    appendProduct(price, tab, numDishes, daysSelection, numDays);
-    submit.click();
+    // appendProduct(price, tab, numDishes, daysSelection, numDays);
+    // submit.click();
 }
 
 function appendProduct (price, tab, numDishes, daysSelection, numDays) {

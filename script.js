@@ -142,9 +142,11 @@ function setOrderBtnActivity () {
     if (state.phone.split('').indexOf('_') === -1) {
         orderBtn.classList.add('active');
         orderBtn.addEventListener('click', handleOrder);
+        orderInfoLink.style.pointerEvents = 'auto';
     } else {
         orderBtn.classList.remove('active');
         orderBtn.removeEventListener('click', handleOrder);
+        orderInfoLink.style.pointerEvents = 'none';
     }
 }
 
@@ -241,6 +243,7 @@ $(phone).on('input', changePhoneNumber);
 // initial pics
 redrawDishesExamples();
 changePhoneNumber();
+resetOrderInfo();
 
 // phone mask
 Inputmask({"mask": "+7 (999) 999-99-99"}).mask(phone);
