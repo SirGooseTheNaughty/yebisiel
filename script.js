@@ -205,3 +205,4 @@ for (let method in payment) {
 }
 
 nextBtn.addEventListener('click', clickNext);
+redrawDishesExamples();
