@@ -1,49 +1,53 @@
-const basket = document.querySelector('#rec313869959 .t706__cartwin-content');
-const priceField = basket.querySelector('.t706__cartwin-prodamount');
-const phoneField = basket.querySelector('[data-input-lid="1496239459190"] input');
-const menuField = basket.querySelector('[data-input-lid="1602789521102"] input');
-const numDishesField = basket.querySelector('[data-input-lid="1620733210076"] input');
-const numDaysField = basket.querySelector('[data-input-lid="1620733232870"] input');
-const paumentCash = basket.querySelector('[name="paymentsystem"][value="cash"]');
-const paumentCard = basket.querySelector('[name="paymentsystem"][value="cloudpayments"]');
+let basket, priceField, phoneField, menuField, numDishesField, numDaysField, paumentCash, paumentCard, dict;
 
-const dict = {
-    menus: {
-        home: 'домашнее',
-        lite: 'легкое',
-        avan: 'авангард'
-    },
-    numDishes: {
-        three: 'три блюда',
-        four: 'четыре блюда',
-        five: 'пять блюд',
-        six: 'шесть блюд'
-    },
-    numDays: {
-        five: {
-            work: 'на 5 дней',
-            each: 'на 20 дней'
+setTimeout(() => {
+    basket = document.querySelector('#rec313869959');
+    priceField = basket.querySelector('.t706__cartwin-prodamount');
+    phoneField = basket.querySelector('[data-input-lid="1496239459190"] input');
+    menuField = basket.querySelector('[data-input-lid="1602789521102"] input');
+    numDishesField = basket.querySelector('[data-input-lid="1620733210076"] input');
+    numDaysField = basket.querySelector('[data-input-lid="1620733232870"] input');
+    paymentCash = basket.querySelector('[name="paymentsystem"][value="cash"]');
+    paymentCard = basket.querySelector('[name="paymentsystem"][value="cloudpayments"]');
+    
+    dict = {
+        menus: {
+            home: 'домашнее',
+            lite: 'легкое',
+            avan: 'авангард'
         },
-        twenty: {
-            work: 'на 7 дней',
-            each: 'на 28 дней'
-        }
-    },
-}
-
+        numDishes: {
+            three: 'три блюда',
+            four: 'четыре блюда',
+            five: 'пять блюд',
+            six: 'шесть блюд'
+        },
+        numDays: {
+            five: {
+                work: 'на 5 дней',
+                each: 'на 20 дней'
+            },
+            twenty: {
+                work: 'на 7 дней',
+                each: 'на 28 дней'
+            }
+        },
+    }
+}, 2000)
+    
 function fillBasket () {
     const { tab, numDishes, daysSelection, numDays, payment, phone } = state;
     const price = prices[tab][numDishes][daysSelection][numDays];
     priceField.innerHTML = price;
-    phoneField.innerHTML = phone;
-    menuField.innerHTML = dict.menus[tab];
-    numDishesField.innerHTML = dict.numDishes[numDishes];
-    numDaysField.innerHTML = dict.numDays[numDays][daysSelection];
+    phoneField.value = phone;
+    menuField.value = dict.menus[tab];
+    numDishesField.value = dict.numDishes[numDishes];
+    numDaysField.value = dict.numDays[numDays][daysSelection];
     if (payment === 'card') {
-        paumentCash.removeAttribute('checked');
-        paumentCash.setAttribute('checked', 'checked');
+        paymentCash.removeAttribute('checked');
+        paymentCard.setAttribute('checked', 'checked');
     } else {
-        paumentCash.setAttribute('checked', 'checked');
-        paumentCash.removeAttribute('checked');
+        paymentCash.setAttribute('checked', 'checked');
+        paymentCard.removeAttribute('checked');
     }
 }
