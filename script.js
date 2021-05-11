@@ -132,7 +132,7 @@ function redrawDaytags () {
 function resetOrderInfo () {
     const { tab, numDishes, daysSelection, numDays } = state;
     const price = prices[tab][numDishes][daysSelection][numDays];
-    orderInfoLink.setAttribute('href', `#order:${dict.menus[tab]}, ${dict.numDishes[numDishes]} ${dict.numDays[numDays][daysSelection]}=${price}`);
+    orderInfoLink.setAttribute('href', `#order:${orderDict.menus[tab]}, ${orderDict.numDishes[numDishes]} ${orderDict.numDays[numDays][daysSelection]}=${price}`);
 }
 
 function setOrderBtnActivity () {
