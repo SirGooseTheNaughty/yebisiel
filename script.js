@@ -6,6 +6,7 @@ const state = {
     daysSelection: 'work',
     numDays: 'five',
     payment: 'card',
+    phone: '',
     get: function(id) {
         return this[id];
     },
@@ -128,6 +129,20 @@ function redrawDaytags () {
     }
 }
 
+function setOrderBtnActivity () {
+    if (state.phone.split('').indexOf('_') === -1) {
+        orderBtn.classList.add('active');
+        orderBtn.addEventListener('click', handleOrder);
+    } else {
+        orderBtn.classList.remove('active');
+        orderBtn.removeEventListener('click', handleOrder);
+    }
+}
+
+function handleOrder () {
+    console.log('order: ', state);
+}
+
 // функции-обработчики
 function clickTab (tabId) {
     state.set('tab', tabId);
@@ -169,8 +184,9 @@ function clickPaymentMethod (method) {
     setActivePayment();
 }
 
-function clickOrder () {
-    console.log('order');
+function changePhoneNumber () {
+    state.set('phone', this.value);
+    setOrderBtnActivity();
 }
 
 // обработчики кликов
@@ -205,4 +221,12 @@ for (let method in payment) {
 }
 
 nextBtn.addEventListener('click', clickNext);
+
+$(phone).on('input', changePhoneNumber);
+
+// initial pics
 redrawDishesExamples();
+setOrderBtnActivity();
+
+// phone mask
+Inputmask({"mask": "+7 (999) 999-99-99"}).mask(phone);
