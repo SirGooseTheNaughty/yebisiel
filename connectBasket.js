@@ -1,4 +1,31 @@
 let basket, priceField, phoneField, menuField, numDishesField, numDaysField, paumentCash, paumentCard, dict, submit, productsCont, paymentMethod;
+const orderDict = {
+    menus: {
+        home: 'домашнее',
+        lite: 'легкое',
+        avan: 'авангард'
+    },
+    numDishes: {
+        three: 'три блюда',
+        four: 'четыре блюда',
+        five: 'пять блюд',
+        six: 'шесть блюд'
+    },
+    numDays: {
+        five: {
+            work: 'на 5 дней',
+            each: 'на 20 дней'
+        },
+        twenty: {
+            work: 'на 7 дней',
+            each: 'на 28 дней'
+        }
+    },
+    paymentMethod: {
+        card: 'оплата онлайн',
+        cash: 'оплата курьеру при получении'
+    }
+}
 
 const int = setInterval(() => {
     basket = document.querySelector('#rec313869959');
@@ -19,34 +46,6 @@ function setBasketConnection () {
     paymentCard = basket.querySelector('[name="paymentsystem"][value="cloudpayments"]');
     submit = basket.querySelector('.t-submit');
     productsCont = basket.querySelector('.t706__cartwin-products');
-    
-    dict = {
-        menus: {
-            home: 'домашнее',
-            lite: 'легкое',
-            avan: 'авангард'
-        },
-        numDishes: {
-            three: 'три блюда',
-            four: 'четыре блюда',
-            five: 'пять блюд',
-            six: 'шесть блюд'
-        },
-        numDays: {
-            five: {
-                work: 'на 5 дней',
-                each: 'на 20 дней'
-            },
-            twenty: {
-                work: 'на 7 дней',
-                each: 'на 28 дней'
-            }
-        },
-        paymentMethod: {
-            card: 'оплата онлайн',
-            cash: 'оплата курьеру при получении'
-        }
-    }
 }
     
 function fillBasket () {
@@ -54,10 +53,10 @@ function fillBasket () {
     const price = prices[tab][numDishes][daysSelection][numDays];
     priceField.innerHTML = '' + price;
     phoneField.value = phone;
-    menuField.value = dict.menus[tab];
-    numDishesField.value = dict.numDishes[numDishes];
-    numDaysField.value = dict.numDays[numDays][daysSelection];
-    paymentMethodField.value = dict.paymentMethod[payment];
+    menuField.value = orderDict.menus[tab];
+    numDishesField.value = orderDict.numDishes[numDishes];
+    numDaysField.value = orderDict.numDays[numDays][daysSelection];
+    paymentMethodField.value = orderDict.paymentMethod[payment];
     if (payment === 'card') {
         paymentCash.removeAttribute('checked');
         paymentCard.setAttribute('checked', 'checked');
