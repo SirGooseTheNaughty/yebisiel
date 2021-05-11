@@ -203,6 +203,11 @@ function clickPaymentMethod (method) {
 function changePhoneNumber () {
     state.set('phone', this.value || phone.value);
     // setOrderBtnActivity();
+    if (state.phone.split('').indexOf('_') !== -1) {
+        orderBtn.classList.remove('active');
+        orderBtn.removeEventListener('click', handleOrder);
+        orderInfoLink.style.pointerEvents = 'none';
+    }
 }
 
 // обработчики кликов
@@ -253,10 +258,5 @@ $(phone).inputmask("+7 (999) 999-99-99", {
         orderBtn.classList.add('active');
         orderBtn.addEventListener('click', handleOrder);
         orderInfoLink.style.pointerEvents = 'auto';
-    },
-    "onincomplete": function () {
-        orderBtn.classList.remove('active');
-        orderBtn.removeEventListener('click', handleOrder);
-        orderInfoLink.style.pointerEvents = 'none';
-    } 
+    }
 });
