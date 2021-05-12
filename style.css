@@ -528,6 +528,7 @@
     }
     .dish:first-child {
         margin-right: 0;
+        margin-bottom: 13px;
     }
     .dish:last-child {
         margin-bottom: 0;
