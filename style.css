@@ -336,6 +336,7 @@
     }
     .tagline {
         font-size: 22px;
+        margin-bottom: 36px;
     }
     .tab {
         font-size: 20px;
@@ -358,6 +359,7 @@
     }
     .menuSampleCont {
         grid-template-rows: 35px 1fr;
+        margin-bottom: 36px;
     }
     .pics {
         grid-template-columns: repeat(3, 134px);
@@ -372,7 +374,7 @@
     .day {
         width: 142px;
     }
-    .numDaysSelect:last-child {
+    .numDaysSelect.twenty {
         margin-bottom: 4px;
     }
     .phone {
@@ -460,6 +462,10 @@
     }
     .tagline {
         font-size: 18px;
+        margin-bottom: 24px;
+    }
+    .numDishes {
+         margin-bottom: 32px;
     }
     .dish {
         width: 190px;
@@ -525,6 +531,10 @@
     }
     .tagline {
         text-align: center;
+        margin-bottom: 22px;
+    }
+    .numDishes {
+        margin-bottom: 40px;
     }
     .dish:first-child {
         margin-right: 0;
@@ -545,7 +555,7 @@
             "text"
             "pics"
             "button";
-        margin-bottom: 35px;
+        margin-bottom: 21px;
         place-items: center center;
     }
     .pics {
@@ -602,8 +612,11 @@
         width: 100px;
         align-self: flex-end;
     }
-    .payment, .phone {
+    .payment {
         margin-bottom: 28px;
+    }
+    .phone {
+        margin-bottom: 17px;
     }
     .button {
         flex-flow: column;
@@ -615,6 +628,6 @@
     }
     .confidential {
         text-align: center;
-        margin-left: 0;
+        margin: 20px 0 0 0;
     }
 }
