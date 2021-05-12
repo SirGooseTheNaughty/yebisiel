@@ -103,9 +103,6 @@
 .dish:last-child {
     margin-right: 0;
 }
-.dish:hover {
-    background-color: var(--darkerColor);
-}
 .dish.dishActive {
     background-color: var(--darkColor);
     color: var(--fontWhite);
@@ -172,9 +169,6 @@
     justify-content: center;
     align-items: center;
     margin-left: 11px;
-}
-.nextButton:hover .button{
-    background-color: var(--darkerColor);
 }
 .pics {
     place-self: baseline;
@@ -314,6 +308,15 @@
 }
 .confidential a {
     color: inherit;
+}
+
+@media screen and (min-width: 1200px) {
+    .dish:hover {
+        background-color: var(--darkerColor);
+    }
+    .nextButton:hover .button{
+        background-color: var(--darkerColor);
+    }
 }
 
 @media screen and (max-width: 1200px) {
@@ -517,6 +520,8 @@
     }
     .tab {
         font-size: 17px;
+        width: 100%;
+        padding: 0 15px;
     }
     .tagline {
         text-align: center;

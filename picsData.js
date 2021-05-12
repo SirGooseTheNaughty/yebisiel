@@ -142,6 +142,8 @@ const picsUrls = {
         'https://static.tildacdn.com/tild3438-3235-4138-b131-643137393034/Rectangle_29-3.png',
         'https://static.tildacdn.com/tild3433-3334-4336-b634-613631653830/Mask_Group-2.png',
         'https://static.tildacdn.com/tild3236-3061-4365-b939-343862333063/Rectangle_30-1.png',
-        'https://static.tildacdn.com/tild3762-3034-4434-b734-353231616535/Rectangle_29-4.png'
+        'https://static.tildacdn.com/tild3762-3034-4434-b734-353231616535/Rectangle_29-4.png',
+        'https://static.tildacdn.com/tild3635-3165-4931-b431-656135383966/Rectangle_30-2.png',
+        'https://static.tildacdn.com/tild6534-3864-4434-a333-643334306538/Mask_Group-3.png'
     ],
 };

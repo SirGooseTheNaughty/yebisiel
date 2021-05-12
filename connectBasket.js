@@ -1,4 +1,4 @@
-let basket, priceField, phoneField, menuField, numDishesField, numDaysField, paumentCash, paumentCard, dict, submit, productsCont, paymentMethod;
+let basket, priceField, phoneField, menuField, numDishesField, numDaysField, paumentCash, paumentCard, dict, submit, productsCont;
 const orderDict = {
     menus: {
         home: 'домашнее',
@@ -20,10 +20,6 @@ const orderDict = {
             work: 'на 7 дней',
             each: 'на 28 дней'
         }
-    },
-    paymentMethod: {
-        card: 'оплата онлайн',
-        cash: 'оплата курьеру при получении'
     }
 }
 
@@ -41,7 +37,6 @@ function setBasketConnection () {
     menuField = basket.querySelector('[data-input-lid="1602789521102"] input');
     numDishesField = basket.querySelector('[data-input-lid="1620733210076"] input');
     numDaysField = basket.querySelector('[data-input-lid="1620733232870"] input');
-    paymentMethodField = basket.querySelector('[data-input-lid="1620740580240"] input');
     paymentCash = basket.querySelector('[name="paymentsystem"][value="cash"]');
     paymentCard = basket.querySelector('[name="paymentsystem"][value="cloudpayments"]');
     submit = basket.querySelector('.t-submit');
@@ -56,13 +51,10 @@ function fillBasket () {
     menuField.value = orderDict.menus[tab];
     numDishesField.value = orderDict.numDishes[numDishes];
     numDaysField.value = orderDict.numDays[numDays][daysSelection];
-    paymentMethodField.value = orderDict.paymentMethod[payment];
     if (payment === 'card') {
-        paymentCash.removeAttribute('checked');
-        paymentCard.setAttribute('checked', 'checked');
+        paymentCard.click();
     } else {
-        paymentCash.setAttribute('checked', 'checked');
-        paymentCard.removeAttribute('checked');
+        paymentCash.click();
     }
     setTimeout(() => {
         submit.click();
