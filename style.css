@@ -311,7 +311,7 @@
 }
 
 @media screen and (min-width: 1200px) {
-    .dish:hover {
+    .dish:not(.dishActive):hover {
         background-color: var(--darkerColor);
     }
     .nextButton:hover .button{
