@@ -88,7 +88,7 @@
 }
 .dish {
     position: relative;
-    width: 128px;
+    width: 100%;
     height: 94px;
     background-color: var(--lighterColor);
     border-radius: 15px;
@@ -98,6 +98,10 @@
     padding: 0 28px;
     box-sizing: border-box;
     cursor: pointer;
+    margin-right: 20px;
+}
+.dish:last-child {
+    margin-right: 0;
 }
 .dish:hover {
     background-color: var(--darkerColor);
@@ -129,7 +133,7 @@
     display: grid;
     place-items: center baseline;
     grid-template-columns: 50% 50%;
-    grid-template-rows: 35px 262px;
+    grid-template-rows: 35px 1fr;
     grid-template-areas:
         "text button"
         "pics pics";
@@ -308,6 +312,9 @@
     font-weight: lighter;
     width: 195px;
 }
+.confidential a {
+    color: inherit;
+}
 
 @media screen and (max-width: 1200px) {
     .content {
@@ -340,6 +347,7 @@
         width: 214px;
         height: 60px;
         padding: 0;
+        margin: 0;
     }
     .dish:first-child {
         margin-right: 17px;
@@ -483,8 +491,12 @@
         align-items: center;
         justify-content: space-between;
     }
-    .button button, .confidential {
+    .button button {
         width: 190px;
+    }
+    .confidential {
+        width: 100%;
+        margin-left: 20px;
     }
 }
 
@@ -566,10 +578,12 @@
     .days {
         display: flex;
         flex-flow: column;
-        gap: 13px 0;
     }
     .day {
         width: 100%;
+    }
+    .day:first-child {
+        margin-bottom: 13px;
     }
     .numDays {
         display: flex;
@@ -590,10 +604,11 @@
         align-items: center;
         justify-content: space-between;
     }
-    .button button, .confidential {
+    .button button, .orderInfo, .confidential {
         width: 100%;
     }
     .confidential {
         text-align: center;
+        margin-left: 0;
     }
 }
