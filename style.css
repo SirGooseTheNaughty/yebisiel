@@ -12,12 +12,9 @@
 }
 
 /* main */
-body {
-    padding-top: 50px;
-}
 .configurator {
     width: max-content;
-    margin: 130px auto 110px auto;
+    margin: 0 auto;
     font-family: sans-serif;
 }
 .content {
@@ -88,11 +85,10 @@ body {
     display: flex;
     justify-content: space-between;
     margin-bottom: 35px;
-    gap: 0 15px;
 }
 .dish {
     position: relative;
-    width: 100%;
+    width: 128px;
     height: 94px;
     background-color: var(--lighterColor);
     border-radius: 15px;
@@ -337,17 +333,17 @@ body {
     .numDishes {
         display: flex;
         flex-wrap: wrap;
-        gap: 20px 0;
         justify-content: space-between;
         margin-bottom: 35px;
-    }
-    .numDishes {
-        gap: 21px 17px;
     }
     .dish {
         width: 214px;
         height: 60px;
         padding: 0;
+    }
+    .dish:first-child {
+        margin-right: 17px;
+        margin-bottom: 21px;
     }
     .menuSampleCont {
         grid-template-rows: 35px 1fr;
@@ -399,8 +395,9 @@ body {
         border-bottom-left-radius: 15px;
         border-top-right-radius: 0;
     }
-    .numDishes {
-        gap: 22px 21px;
+    .dish:first-child {
+        margin-right: 21px;
+        margin-bottom: 22px;
     }
     .dish {
         width: 250px;
@@ -512,12 +509,16 @@ body {
     .tagline {
         text-align: center;
     }
-    .numDishes {
-        gap: 13px 0;
+    .dish:first-child {
+        margin-right: 0;
+    }
+    .dish:last-child {
+        margin-bottom: 0;
     }
     .dish {
         width: 100%;
         font-size: 16px;
+        margin-bottom: 13px;
     }
     .menuSampleCont {
         grid-template-rows: auto 1fr auto;
