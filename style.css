@@ -188,6 +188,14 @@
     background-color: var(--nutritionColor);
     padding: 9px 18px;
 }
+.menuLink {
+    display: block;
+    width: 100%;
+    font-size: 16px;
+    color: var(--fontBlack);
+    margin-top: 12px;
+    text-align: center;
+}
 
 /* right */
 .days {
@@ -428,6 +436,9 @@
     .pic {
         max-width: 167px;
         max-height: 146px;
+    }
+    .menuLink {
+        margin-top: 20px;
     }
     .day {
         width: 250px;

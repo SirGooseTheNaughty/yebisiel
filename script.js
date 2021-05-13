@@ -145,6 +145,10 @@ function redrawNutrition () {
     nitrition.textContent = nutritionValues[tab][numDishes];
 }
 
+function changeMenuLink () {
+    menuLink.setAttribute('href', menuLinks[state.tab]);
+}
+
 // функции-обработчики
 function clickTab (tabId) {
     state.set('tab', tabId);
@@ -157,6 +161,7 @@ function clickTab (tabId) {
     redrawPrices();
     resetOrderInfo();
     redrawNutrition();
+    changeMenuLink();
 }
 
 function clickNumDishes (numDishes) {
@@ -244,7 +249,6 @@ redrawNutrition();
 phone.value = '';
 
 // phone mask
-// Inputmask({"mask": "+7 (999) 999-99-99"}).mask(phone);
 $(phone).inputmask("+7 (999) 999-99-99", {
     "oncomplete": function () {
         orderBtn.classList.add('active');

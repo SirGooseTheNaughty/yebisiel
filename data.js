@@ -39,6 +39,7 @@ const orderBtn = document.querySelector('#order');
 const orderInfoLink = document.querySelector('.orderInfo');
 const tagline = document.querySelector('.tagline');
 const nitrition = document.querySelector('.nutrition .values');
+const menuLink = document.querySelector('.menuLink');
 const picElement = (url) => {
     return `<img src="${url}" alt="dish example" class="pic">`;
 }
@@ -86,4 +87,9 @@ const nutritionValues = {
         five: '1900-2100 ккал',
         six: '2200-2400 ккал'
     }
+};
+const menuLinks = {
+    home: '#home',
+    lite: '#lite',
+    avan: '#avan'
 }
