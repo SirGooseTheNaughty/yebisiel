@@ -181,7 +181,8 @@
     transform: translateX(-5px);
 }
 .pic {
-    width: 170px;
+    max-width: 170px;
+    max-height: 130px;
 }
 .nutrition {
     background-color: var(--nutritionColor);
@@ -369,7 +370,8 @@
         transform: translateX(-4px);
     }
     .pic {
-        width: 139px;
+        max-width: 139px;
+        max-height: 105px;
     }
     .day {
         width: 142px;
@@ -424,7 +426,8 @@
         grid-gap: 20px 18px;
     }
     .pic {
-        width: 167px;
+        max-width: 167px;
+        max-height: 146px;
     }
     .day {
         width: 250px;
@@ -479,7 +482,8 @@
         padding-top: 16px;
     }
     .pic {
-        width: 128px;
+        max-width: 128px;
+        max-height: 97px;
     }
     .nutrition {
         font-size: 16px;;
@@ -562,7 +566,8 @@
         transform: translateX(-3px);
     }
     .pic {
-        width: 130px;
+        max-width: 130px;
+        max-height: 98px;
     }
     .nextButton {
         padding-top: 23px;
