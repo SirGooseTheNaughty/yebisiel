@@ -182,7 +182,6 @@
     grid-template-rows: repeat(2, 121px);
     grid-gap: 20px 32px;
     padding-top: 20px;
-    transform: translateX(-5px);
 }
 .pic {
     min-width: 163px;
@@ -379,7 +378,6 @@
         grid-template-rows: repeat(2, 101px);
         grid-gap: 21px 21px;
         padding-top: 16px;
-        transform: translateX(-4px);
     }
     .pic {
         min-width: 134px;
@@ -578,7 +576,6 @@
         grid-template-rows: 97px;
         grid-gap: 16px 15px;
         padding-top: 23px;
-        transform: translateX(-3px);
     }
     .pic {
         min-width: 126px;
