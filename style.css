@@ -186,6 +186,7 @@
 .pic {
     min-width: 163px;
     min-height: 121px;
+    pointer-events: none;
 }
 .nutrition {
     background-color: var(--nutritionColor);
