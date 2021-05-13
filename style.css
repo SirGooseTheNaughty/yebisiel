@@ -311,13 +311,13 @@
     pointer-events: auto;
 }
 .confidential {
-    color: var(--fontGray) !important;
+    color: var(--fontGray);
     font-size: 14px;
     font-weight: lighter;
     width: 195px;
 }
 .confidential a {
-    color: inherit;
+    color: var(--fontGray) !important;
 }
 
 @media screen and (min-width: 1200px) {
