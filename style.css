@@ -177,6 +177,7 @@
     place-self: baseline;
     width: 100%;
     display: grid;
+    place-items: end;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(2, 121px);
     grid-gap: 20px 32px;
@@ -184,8 +185,8 @@
     transform: translateX(-5px);
 }
 .pic {
-    max-width: 170px;
-    max-height: 130px;
+    min-width: 163px;
+    min-height: 121px;
 }
 .nutrition {
     background-color: var(--nutritionColor);
@@ -381,8 +382,8 @@
         transform: translateX(-4px);
     }
     .pic {
-        max-width: 139px;
-        max-height: 105px;
+        min-width: 134px;
+        min-height: 101px;
     }
     .day {
         width: 142px;
@@ -437,8 +438,8 @@
         grid-gap: 20px 18px;
     }
     .pic {
-        max-width: 167px;
-        max-height: 146px;
+        min-width: 160px;
+        min-height: 122px;
     }
     .menuLink {
         margin-top: 20px;
@@ -496,8 +497,8 @@
         padding-top: 16px;
     }
     .pic {
-        max-width: 128px;
-        max-height: 97px;
+        min-width: 124px;
+        min-height: 95px;
     }
     .nutrition {
         font-size: 16px;;
@@ -580,8 +581,8 @@
         transform: translateX(-3px);
     }
     .pic {
-        max-width: 130px;
-        max-height: 98px;
+        min-width: 126px;
+        min-height: 97px;
     }
     .nextButton {
         padding-top: 23px;
