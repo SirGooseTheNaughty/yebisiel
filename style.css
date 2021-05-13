@@ -182,6 +182,7 @@
     grid-template-rows: repeat(2, 121px);
     grid-gap: 20px 32px;
     padding-top: 20px;
+    transform: scale(1.02);
 }
 .pic {
     min-width: 163px;
