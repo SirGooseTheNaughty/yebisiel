@@ -17,6 +17,9 @@
     margin: 0 auto;
     font-family: 'Rubik', sans-serif;
 }
+.configurator a {
+    text-decoration: underline;
+}
 .content {
     display: grid;
     grid-template-rows: 70px 677px;
