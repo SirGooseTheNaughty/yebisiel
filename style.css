@@ -441,6 +441,7 @@
         grid-gap: 20px 18px;
     }
     .pic {
+        height: 124px;
         min-width: 160px;
         min-height: 122px;
     }
@@ -500,6 +501,7 @@
         padding-top: 16px;
     }
     .pic {
+        height: 97px;
         min-width: 124px;
         min-height: 95px;
     }
