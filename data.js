@@ -38,6 +38,7 @@ const phone = document.querySelector('.phone');
 const orderBtn = document.querySelector('#order');
 const orderInfoLink = document.querySelector('.orderInfo');
 const tagline = document.querySelector('.tagline');
+const nitrition = document.querySelector('.nutrition.values');
 const picElement = (url) => {
     return `<img src="${url}" alt="dish example" class="pic">`;
 }
@@ -68,3 +69,21 @@ const taglineTexts = {
     lite: 'Баланс привычной еды для красивой фигуры',
     avan: 'Палитра блюд различных стран мира'
 };
+const nutritionValues = {
+    home: {
+        three: '1100-1300 ккал / Б: 75 / Ж: 45 / У: 80',
+        four: '1400-1600 ккал / Б: 75 / Ж: 45 / У: 80',
+        five: '1800-2000 ккал / Б: 75 / Ж: 45 / У: 80',
+        six: '2100-2300 ккал / Б: 75 / Ж: 45 / У: 80'
+    },
+    lite: {
+        three: '900 ккал / Б: 75 / Ж: 45 / У: 80',
+        five: '1200-1400 ккал / Б: 75 / Ж: 45 / У: 80'
+    },
+    avan: {
+        three: '1100-1300 ккал / Б: 75 / Ж: 45 / У: 80',
+        four: '1500-1700 ккал / Б: 75 / Ж: 45 / У: 80',
+        five: '1900-2100 ккал / Б: 75 / Ж: 45 / У: 80',
+        six: '2200-2400 ккал / Б: 75 / Ж: 45 / У: 80'
+    }
+}

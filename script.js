@@ -135,24 +135,14 @@ function resetOrderInfo () {
     orderInfoLink.setAttribute('href', `#order:${orderDict.menus[tab]}, ${orderDict.numDishes[numDishes]} ${orderDict.numDays[numDays][daysSelection]}=${price}`);
 }
 
-// function setOrderBtnActivity () {
-//     if (!state.phone) {
-//         return;
-//     }
-//     if (state.phone.split('').indexOf('_') === -1) {
-//         orderBtn.classList.add('active');
-//         orderBtn.addEventListener('click', handleOrder);
-//         orderInfoLink.style.pointerEvents = 'auto';
-//     } else {
-//         orderBtn.classList.remove('active');
-//         orderBtn.removeEventListener('click', handleOrder);
-//         orderInfoLink.style.pointerEvents = 'none';
-//     }
-// }
-
 function handleOrder () {
     console.log('order: ', state);
     fillBasket();
+}
+
+function redrawNutrition () {
+    const { tab, numDishes } = state;
+    nitrition.textContent = nutritionValues[tab][numDishes];
 }
 
 // функции-обработчики
@@ -166,6 +156,7 @@ function clickTab (tabId) {
     redrawDishesExamples();
     redrawPrices();
     resetOrderInfo();
+    redrawNutrition();
 }
 
 function clickNumDishes (numDishes) {
@@ -174,6 +165,7 @@ function clickNumDishes (numDishes) {
     redrawDishesExamples();
     redrawPrices();
     resetOrderInfo();
+    redrawNutrition();
 }
 
 function clickNext () {
@@ -202,7 +194,6 @@ function clickPaymentMethod (method) {
 
 function changePhoneNumber () {
     state.set('phone', this.value || phone.value);
-    // setOrderBtnActivity();
     if (state.phone.split('').indexOf('_') !== -1) {
         orderBtn.classList.remove('active');
         orderBtn.removeEventListener('click', handleOrder);
@@ -249,6 +240,7 @@ $(phone).on('input', changePhoneNumber);
 redrawDishesExamples();
 changePhoneNumber();
 resetOrderInfo();
+redrawNutrition();
 phone.value = '';
 
 // phone mask
