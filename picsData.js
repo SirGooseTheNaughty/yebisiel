@@ -55,44 +55,44 @@ const picsUrls = {
         'https://static.tildacdn.com/tild3030-3337-4632-b462-373865373666/Rectangle_10.png',
         'https://static.tildacdn.com/tild3734-3030-4862-b537-333165303136/Rectangle_29.png',
         'https://static.tildacdn.com/tild3339-3666-4734-b931-326463393439/Rectangle_28.png',
-        'https://static.tildacdn.com/tild3361-6435-4431-b536-316466623664/Mask_Group.png',
         'https://static.tildacdn.com/tild3732-3234-4233-b030-636632353738/Rectangle_30.png',
+        'https://static.tildacdn.com/tild3361-6435-4431-b536-316466623664/Mask_Group.png',
         
         'https://static.tildacdn.com/tild3565-3731-4863-a639-353961313630/Rectangle_28.png',
         'https://static.tildacdn.com/tild6663-6634-4163-b334-363531623835/Rectangle_29.png',
         'https://static.tildacdn.com/tild3830-3162-4133-b962-376338313439/Rectangle_10.png',
-        'https://static.tildacdn.com/tild3337-3465-4234-a637-613562393564/Mask_Group.png',
         'https://static.tildacdn.com/tild3336-6433-4339-a332-336533313661/Rectangle_30.png',
+        'https://static.tildacdn.com/tild3337-3465-4234-a637-613562393564/Mask_Group.png',
         
         'https://static.tildacdn.com/tild6337-6438-4663-b430-396161366162/Rectangle_10.png',
         'https://static.tildacdn.com/tild3162-6535-4330-b966-386362303537/Rectangle_29.png',
         'https://static.tildacdn.com/tild3266-3831-4966-a439-363632396363/Rectangle_28.png',
-        'https://static.tildacdn.com/tild6135-6632-4734-b264-653430623265/Mask_Group.png',
         'https://static.tildacdn.com/tild3964-6136-4564-b962-383735653938/Rectangle_30.png',
+        'https://static.tildacdn.com/tild6135-6632-4734-b264-653430623265/Mask_Group.png',
         
         'https://static.tildacdn.com/tild3363-3233-4934-b961-343264616139/Rectangle_28.png',
         'https://static.tildacdn.com/tild3163-3637-4938-b662-623335663232/Rectangle_29.png',
         'https://static.tildacdn.com/tild3935-6439-4532-b134-316339393163/Rectangle_10.png',
-        'https://static.tildacdn.com/tild3730-3836-4663-a432-623461336563/Mask_Group.png',
         'https://static.tildacdn.com/tild3333-3835-4163-b830-353032383663/Rectangle_30.png',
+        'https://static.tildacdn.com/tild3730-3836-4663-a432-623461336563/Mask_Group.png',
         
         'https://static.tildacdn.com/tild3535-6166-4733-b862-313231323063/Rectangle_10.png',
         'https://static.tildacdn.com/tild3361-3866-4533-a265-373263343238/Rectangle_29.png',
         'https://static.tildacdn.com/tild3930-3133-4937-b733-633837663033/Rectangle_28.png',
-        'https://static.tildacdn.com/tild3865-3733-4561-a366-616563623165/Mask_Group.png',
         'https://static.tildacdn.com/tild3464-3332-4538-b535-636533336461/Rectangle_30.png',
+        'https://static.tildacdn.com/tild3865-3733-4561-a366-616563623165/Mask_Group.png',
         
         'https://static.tildacdn.com/tild6466-3664-4462-a232-353630393736/Rectangle_10.png',
         'https://static.tildacdn.com/tild6434-6663-4436-a262-356236666637/Rectangle_29.png',
         'https://static.tildacdn.com/tild3362-3865-4163-a638-353734656132/Rectangle_28.png',
-        'https://static.tildacdn.com/tild3164-6630-4036-a632-643437646435/Mask_Group.png',
         'https://static.tildacdn.com/tild6437-6466-4939-a366-663466623235/Rectangle_30.png',
+        'https://static.tildacdn.com/tild3164-6630-4036-a632-643437646435/Mask_Group.png',
         
         'https://static.tildacdn.com/tild6265-3538-4133-b066-663832633730/Rectangle_10.png',
         'https://static.tildacdn.com/tild3966-3937-4137-b532-313131666431/Rectangle_29.png',
         'https://static.tildacdn.com/tild3939-6165-4561-b463-303432623938/Rectangle_28.png',
-        'https://static.tildacdn.com/tild3936-6332-4165-b633-303961383935/Mask_Group.png',
-        'https://static.tildacdn.com/tild3135-3339-4631-b262-613963383639/Rectangle_30.png'
+        'https://static.tildacdn.com/tild3135-3339-4631-b262-613963383639/Rectangle_30.png',
+        'https://static.tildacdn.com/tild3936-6332-4165-b633-303961383935/Mask_Group.png'
     ],
     avan: [
         'https://static.tildacdn.com/tild3763-3432-4534-a264-336334636637/Rectangle_10.png',
