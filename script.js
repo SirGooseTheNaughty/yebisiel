@@ -160,9 +160,9 @@ function changePhoneNumber () {
 
 function fixMarginForLite () {
     if (state.tab === 'lite') {
-        numDishes.five.style.classList.add('noMargin');
+        numDishes.five.classList.add('noMargin');
     } else {
-        numDishes.five.style.classList.remove('noMargin');
+        numDishes.five.classList.remove('noMargin');
     }
 }
 
