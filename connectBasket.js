@@ -14,10 +14,10 @@ const orderDict = {
     numDays: {
         five: {
             work: 'на 5 дней',
-            each: 'на 20 дней'
+            each: 'на 7 дней'
         },
         twenty: {
-            work: 'на 7 дней',
+            work: 'на 20 дней',
             each: 'на 28 дней'
         }
     }
