@@ -149,6 +149,23 @@ function changeMenuLink () {
     menuLink.setAttribute('href', menuLinks[state.tab]);
 }
 
+function changePhoneNumber () {
+    state.set('phone', this.value || phone.value);
+    if (state.phone.split('').indexOf('_') !== -1) {
+        orderBtn.classList.remove('active');
+        orderBtn.removeEventListener('click', handleOrder);
+        orderInfoLink.style.pointerEvents = 'none';
+    }
+}
+
+function fixMarginForLite () {
+    if (state.tab === 'lite') {
+        numDishes.five.style.classList.add('noMargin');
+    } else {
+        numDishes.five.style.classList.remove('noMargin');
+    }
+}
+
 // функции-обработчики
 function clickTab (tabId) {
     state.set('tab', tabId);
@@ -162,6 +179,7 @@ function clickTab (tabId) {
     resetOrderInfo();
     redrawNutrition();
     changeMenuLink();
+    fixMarginForLite();
 }
 
 function clickNumDishes (numDishes) {
@@ -195,23 +213,6 @@ function clickNumDays (numDays) {
 function clickPaymentMethod (method) {
     state.set('payment', method);
     setActivePayment();
-}
-
-function changePhoneNumber () {
-    state.set('phone', this.value || phone.value);
-    if (state.phone.split('').indexOf('_') !== -1) {
-        orderBtn.classList.remove('active');
-        orderBtn.removeEventListener('click', handleOrder);
-        orderInfoLink.style.pointerEvents = 'none';
-    }
-}
-
-function fixMarginForLite () {
-    if (state.tab === 'lite') {
-        numDishes.five.style.classList.add('noMargin');
-    } else {
-        numDishes.five.style.classList.remove('noMargin');
-    }
 }
 
 // обработчики кликов
