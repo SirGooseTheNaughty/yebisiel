@@ -206,6 +206,14 @@ function changePhoneNumber () {
     }
 }
 
+function fixMarginForLite () {
+    if (state.tab === 'lite') {
+        numDishes.five.style.classList.add('noMargin');
+    } else {
+        numDishes.five.style.classList.remove('noMargin');
+    }
+}
+
 // обработчики кликов
 for (let tab in tabs) {
     tabs[tab].addEventListener('click', () => {
