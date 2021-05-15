@@ -77,9 +77,9 @@ const picsUrls = {
         'https://static.tildacdn.com/tild3730-3836-4663-a432-623461336563/Mask_Group.png',
         
         'https://static.tildacdn.com/tild3535-6166-4733-b862-313231323063/Rectangle_10.png',
-        'https://static.tildacdn.com/tild3361-3866-4533-a265-373263343238/Rectangle_29.png',
         'https://static.tildacdn.com/tild3930-3133-4937-b733-633837663033/Rectangle_28.png',
         'https://static.tildacdn.com/tild3464-3332-4538-b535-636533336461/Rectangle_30.png',
+        'https://static.tildacdn.com/tild3361-3866-4533-a265-373263343238/Rectangle_29.png',
         'https://static.tildacdn.com/tild3865-3733-4561-a366-616563623165/Mask_Group.png',
         
         'https://static.tildacdn.com/tild3362-3865-4163-a638-353734656132/Rectangle_28.png',
