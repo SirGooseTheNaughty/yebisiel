@@ -141,8 +141,10 @@ function handleOrder () {
 }
 
 function redrawNutrition () {
-    const { tab, numDishes } = state;
-    nitrition.textContent = nutritionValues[tab][numDishes];
+    const { tab, numDishes, day } = state;
+    const nutrVals = nutritionValues[tab][numDishes][day].split('/');
+    const nutrText = `${nutrVals[0]} ккал / Б: ${nutrVals[1]} / Ж: ${nutrVals[2]} / У: ${nutrVals[3]}`;
+    nitrition.textContent = nutrText;
 }
 
 function changeMenuLink () {
@@ -194,6 +196,7 @@ function clickNumDishes (numDishes) {
 function clickNext () {
     incrementDay();
     redrawDishesExamples();
+    redrawNutrition();
 }
 
 function clickDaysSelect (daysId) {
