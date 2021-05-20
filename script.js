@@ -260,6 +260,7 @@ redrawDishesExamples();
 changePhoneNumber();
 resetOrderInfo();
 redrawNutrition();
+changeMenuLink();
 phone.value = '';
 
 // phone mask
