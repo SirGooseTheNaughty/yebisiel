@@ -93,10 +93,12 @@ function setActivePayment () {
     }
 }
 
-function incrementDay () {
-    const newDay = state.day + 1;
+function incrementDay (direction) {
+    const newDay = state.day + direction;
     if (newDay > 6) {
         state.set('day', 0);
+    } else if (newDay < 0) {
+        state.set('day', 6);
     } else {
         state.set('day', newDay);
     }
@@ -194,7 +196,7 @@ function clickNumDishes (numDishes) {
 }
 
 function clickNext () {
-    incrementDay();
+    incrementDay(1);
     redrawDishesExamples();
     redrawNutrition();
 }

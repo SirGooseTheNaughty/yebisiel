@@ -88,8 +88,8 @@ const taglineTexts = {
 //         six: '2200-2400 ккал'
 //     }
 // };
-const menuLinks = {
-    home: '#home',
-    lite: '#lite',
-    avan: '#avan'
-}
+// const menuLinks = {
+//     home: '#home',
+//     lite: '#lite',
+//     avan: '#avan'
+// }
