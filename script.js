@@ -104,6 +104,10 @@ function incrementDay (direction) {
     }
 }
 
+function redrawDayText () {
+    nextBtnText.textContent = daysTexts[state.day];
+}
+
 function redrawDishesExamples () {
     dishExamples.innerHTML = '';
     const { tab, numDishes, day } = state;
@@ -184,6 +188,7 @@ function clickTab (tabId) {
     redrawNutrition();
     changeMenuLink();
     fixMarginForLite();
+    trackMenu();
 }
 
 function clickNumDishes (numDishes) {
@@ -195,10 +200,11 @@ function clickNumDishes (numDishes) {
     redrawNutrition();
 }
 
-function clickNext () {
-    incrementDay(1);
+function clickNext (direction) {
+    incrementDay(direction);
     redrawDishesExamples();
     redrawNutrition();
+    redrawDayText();
 }
 
 function clickDaysSelect (daysId) {
@@ -251,7 +257,8 @@ for (let method in payment) {
     });
 }
 
-nextBtn.addEventListener('click', clickNext);
+nextBtns.next.addEventListener('click', () => clickNext(1));
+nextBtns.prev.addEventListener('click', () => clickNext(-1));
 
 $(phone).on('input', changePhoneNumber);
 
@@ -271,3 +278,11 @@ $(phone).inputmask("+7 (999) 999-99-99", {
         orderInfoLink.style.pointerEvents = 'auto';
     }
 });
+
+// трекер пикселя для меню
+function trackMenu () {
+    fbq('track', 'InitiateCheckout', {
+        content_ids: [state.tab],
+        content_type: 'product'
+    });  
+}

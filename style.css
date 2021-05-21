@@ -153,13 +153,6 @@
 .menuSampleCont .pics {
     grid-area: pics;
 }
-.nextButton {
-    place-self: end;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    cursor: pointer;
-}
 .nutrition {
     display: flex;
     justify-content: space-between;
@@ -169,6 +162,13 @@
 .textAndSelect {
     margin-bottom: 20px;
 }
+.nextButton {
+    place-self: end;
+    display: flex;
+    width: 220px;
+    justify-content: space-between;
+    align-items: center;
+}
 .nextButton .button {
     width: 35px;
     height: 35px;
@@ -177,7 +177,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-left: 11px;
+    cursor: pointer;
+}
+.nextButton .prev {
+    transform: rotate(180deg);
 }
 .pics {
     place-self: baseline;
@@ -338,7 +341,7 @@
     .dish:not(.dishActive):hover {
         background-color: var(--darkerColor);
     }
-    .nextButton:hover .button{
+    .nextButton .button:hover {
         background-color: var(--darkerColor);
     }
 }
@@ -501,6 +504,9 @@
         grid-template-rows: 35px 1fr;
         margin-bottom: 26px;
     }
+    .nextButton {
+        width: 200px;
+    }
     .pics {
         grid-template-rows: 95px;
         grid-gap: 16px 14px;
@@ -604,7 +610,6 @@
     }
     .menuSampleCont .nextButton {
         place-self: center center;
-        transform: translateX(15px)
     }
     .nutrition {
         display: flex;

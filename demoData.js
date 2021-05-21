@@ -1,3 +1,9 @@
+const menuLinks = {
+    home: '#home',
+    lite: '#lite',
+    avan: '#avan'
+}
+    
 const picsUrls = {
     home: [
         './assets/1.png',

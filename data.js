@@ -11,7 +11,11 @@ const numDishes = {
     five: document.querySelector('.fiveDishes'),
     six: document.querySelector('.sixDishes')
 };
-const nextBtn = document.querySelector('.nextButton');
+const nextBtns = {
+    next: document.querySelector('.nextButton .next'),
+    prev: document.querySelector('.nextButton .prev'),
+};
+const nextBtnText = document.querySelector('.nextButton .text');
 const dishExamples = document.querySelector('.pics');
 const daysSelect = {
     each: document.querySelector('.eachDay'),
@@ -70,6 +74,15 @@ const taglineTexts = {
     lite: 'Баланс привычной еды для красивой фигуры',
     avan: 'Палитра блюд различных стран мира'
 };
+const daysTexts = [
+    'Понедельник',
+    'Вторник',
+    'Среда',
+    'Четверг',
+    'Пятница',
+    'Суббота',
+    'Воскресенье'
+];
 // const nutritionValues = {
 //     home: {
 //         three: '1100-1300 ккал',
