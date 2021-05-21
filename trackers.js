@@ -1,1 +1,1 @@
-$('[href="#rec312382894"], [href="#popup:myform"], #form313547538 .t-form__submit, .t898__btn_label').on('click', () => fbq('track', 'Contact'));
+$(document).on('click', '[href="#rec312382894"], [href="#popup:myform"], #form313547538 .t-form__submit, .t898__btn_label', () => fbq('track', 'Contact'));

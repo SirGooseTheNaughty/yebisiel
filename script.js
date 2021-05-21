@@ -281,8 +281,9 @@ $(phone).inputmask("+7 (999) 999-99-99", {
 
 // трекер пикселя для меню
 function trackMenu () {
+    const menu = orderDict.menus[state.tab];
     fbq('track', 'InitiateCheckout', {
-        content_ids: [state.tab],
+        content_ids: [menu],
         content_type: 'product'
     });  
 }
