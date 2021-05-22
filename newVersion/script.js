@@ -156,7 +156,7 @@ function resetOrderInfo () {
 
 function handleOrder () {
     console.log('order: ', state);
-    // fillBasket();
+    fillBasket();
 }
 
 function redrawNutrition () {
