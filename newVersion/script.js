@@ -292,6 +292,7 @@ redrawNutrition();
 changeMenuLink();
 setPrice();
 redrawPrice();
+redrawDaytags();
 phone.value = '';
 
 // phone mask
