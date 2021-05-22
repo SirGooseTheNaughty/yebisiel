@@ -197,6 +197,7 @@ function clickTab (tabId) {
     setActiveNumDishes();
     redrawDishesExamples();
     setPrice();
+    redrawDaytags();
     redrawPrice();
     resetOrderInfo();
     redrawNutrition();
@@ -210,6 +211,7 @@ function clickNumDishes (numDishes) {
     setActiveNumDishes();
     redrawDishesExamples();
     setPrice();
+    redrawDaytags();
     redrawPrice();
     resetOrderInfo();
     redrawNutrition();
@@ -227,6 +229,7 @@ function clickDaysSelect (daysId) {
     setActiveDays();
     redrawDaytags();
     setPrice();
+    redrawDaytags();
     redrawPrice();
     resetOrderInfo();
 }
