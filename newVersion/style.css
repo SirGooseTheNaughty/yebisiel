@@ -1,0 +1,782 @@
+:root {
+    --fontBlack: #333333;
+    --fontWhite: #F2F2F2;
+    --fontGray: #828282;
+    --fontGray2: #4F4F4F;
+
+    --homeColor: #FFCC99;
+    --liteColor: #D6E5B1;
+    --avanColor: #BFBAC6;
+
+    --orderBtnColor: #F08D46;
+    --orderBtnDisactive: #CDCDCD;
+}
+
+/* main */
+.configurator {
+    width: max-content;
+    margin: 0 auto;
+    font-family: 'Rubik', sans-serif;
+    user-select: none;
+}
+.configurator a {
+    text-decoration: underline !important;
+}
+.content {
+    display: grid;
+    grid-template-rows: 70px 660px;
+    grid-template-columns: 660px 500px;
+    grid-template-areas:
+        "tabs ."
+        "left right";
+    color: var(--fontBlack);
+    font-size: 18px;
+}
+
+/* segments */
+.tabs {
+    grid-area: tabs;
+    display: flex;
+    align-items: flex-end;
+    height: 71px;
+}
+.left {
+    background-color: var(--mainColor);
+    grid-area: left;
+    border-bottom-left-radius: 15px;
+    padding: 41px 48px 18px 48px;
+}
+.right {
+    background-color: var(--lighterColor);
+    grid-area: right;
+    border-bottom-right-radius: 15px;
+    border-top-right-radius: 15px;
+    padding: 69px 51px 0 51px;
+}
+
+/* tabs */
+.tab {
+    width: 220px;
+    height: 90%;
+    border-radius: 15px 15px 0 0;
+    display: grid;
+    place-items: center;
+    color: white;
+    font-size: 24px;
+    transition: height 0.4s ease;
+    cursor: pointer;
+}
+.tabActive {
+    height: 100%;
+    font-weight: bold;
+}
+.tabHome {
+    background-color: var(--homeColor);
+}
+.tabLite {
+    background-color: var(--liteColor);
+}
+.tabAvan {
+    background-color: var(--avanColor);
+}
+
+/* left */
+.tagline {
+    display: flex;
+    margin-bottom: 34px;
+    align-items: center;
+}
+.tagline .taglinePic {
+    margin-right: 12px;
+    height: 30px;
+}
+.tagline p {
+    color: var(--darkColor);
+    font-size: 22px;
+    font-weight: bold;
+    user-select: auto;
+    margin: 0;
+}
+.numDishes {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 35px;
+}
+.dish {
+    position: relative;
+    width: 100%;
+    height: 83px;
+    background-color: var(--lighterColor);
+    border-radius: 15px;
+    display: grid;
+    place-items: center;
+    text-align: center;
+    line-height: .9em;
+    padding: 0 28px;
+    box-sizing: border-box;
+    cursor: pointer;
+    margin-right: 20px;
+}
+.dish:last-child {
+    margin-right: 0;
+}
+.noMargin {
+    margin-right: 0;
+}
+.dish.dishActive {
+    background-color: var(--darkColor);
+    color: var(--fontWhite);
+}
+.dish.hit::after {
+    content: 'HIT';
+    position: absolute;
+    top: 0;
+    right: 13px;
+    width: 48px;
+    height: 26px;
+    transform: translateY(-50%);
+    border-radius: 13px;
+    color: var(--fontWhite);
+    font-size: 14px;
+    background-color: var(--darkColor);
+    display: grid;
+    place-items: center;
+}
+.dish.dishActive.hit::after {
+    background-color: var(--lighterColor);
+    color: var(--fontBlack);
+}
+.menuSampleCont {
+    display: grid;
+    place-items: center baseline;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 35px 1fr;
+    grid-template-areas:
+        "text button"
+        "pics pics";
+    margin-bottom: 21px;
+}
+.menuSampleCont .menuSampleText {
+    grid-area: text;
+}
+.menuSampleCont .nextButton {
+    grid-area: button;
+}
+.menuSampleCont .pics {
+    grid-area: pics;
+}
+.nutrition {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    user-select: auto;
+}
+.nextButton {
+    place-self: end;
+    display: flex;
+    width: 220px;
+    justify-content: space-between;
+    align-items: center;
+}
+.nextButton .button {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: var(--lighterColor);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.nextButton .prev {
+    transform: rotate(180deg);
+}
+.pics {
+    place-self: baseline;
+    width: 100%;
+    display: grid;
+    place-items: end;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 121px);
+    grid-gap: 20px 32px;
+    padding-top: 20px;
+    transform: scale(1.02);
+    box-sizing: border-box;
+}
+.pic {
+    min-width: 163px;
+    min-height: 121px;
+    max-width: 100%;
+    max-height: 100%;
+    user-select: none;
+}
+.nutrition {
+    background-color: var(--nutritionColor);
+    padding: 9px 18px;
+}
+.menuLink {
+    display: block;
+    width: 100%;
+    font-size: 14px;
+    color: var(--fontBlack) !important;
+    margin-top: 15px;
+    text-align: center;
+}
+
+/* right */
+.question {
+    color: var(--fontGray2);
+    margin-bottom: 21px;
+}
+.days,
+.numDaysSelect {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 35px;
+}
+.day,
+.numDays {
+    width: 188px;
+    height: 48px;
+    border-radius: 15px;
+    background-color: var(--mainColor);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 16px;
+}
+.numDay {
+    margin-right: .3em;
+    font-weight: bold;
+}
+.dayPrice {
+    font-weight: normal;
+    color: var(--darkColor);
+}
+.day.active,
+.numDays.active {
+    background-color: var(--darkColor);
+    color: var(--fontWhite);
+}
+.numDays.active .numDay {
+    color: var(--fontWhite);
+    font-weight: bolder;
+}
+.numDays.active .dayPrice {
+    color: var(--fontWhite);
+}
+.price {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+.priseResults {
+    display: flex;
+    flex-flow: column;
+    align-items: flex-end;
+}
+.totalPrice {
+    font-size: 24px;
+    font-weight: bolder;
+    color: var(--fontGray2);
+    margin-bottom: 3px;
+}
+.yourProfit {
+    text-align: end;
+    color: var(--orderBtnColor);
+    font-size: 14px;
+}
+.line {
+    width: 100%;
+    height: 1px;
+    background-color: var(--darkColor);
+    margin-bottom: 25px;
+}
+.payment {
+    display: flex;
+    margin-bottom: 32px;
+}
+.paymentMethod {
+    position: relative;
+    display: flex;
+    padding-left: 40px;
+    cursor: pointer;
+}
+.paymentMethod:first-child {
+    margin-right: 40px;
+}
+.paymentMethod::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: var(--mainColor);
+}
+.paymentMethod.checked::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(4px, 4px);
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: var(--darkColor);
+}
+/* checkout */
+.phone {
+    width: 100%;
+    height: 53px;
+    background-color: white;
+    color: var(--fontGray);
+    border: none;
+    padding: 16px 40px;
+    box-sizing: border-box;
+    margin-bottom: 29px;
+    font-size: 18px;
+}
+.button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.button button {
+    width: 188px;
+    height: 58px;
+    background-color: var(--orderBtnDisactive);
+    transition: background-color 0.4s ease;
+    color: var(--fontWhite);
+    text-transform: uppercase;
+    font-weight: bold;
+    border: none;
+    border-radius: 15px;
+    font-size: 20px;
+    box-sizing: border-box;
+    cursor: auto;
+    pointer-events: none;
+}
+.button button.active {
+    background-color: var(--orderBtnColor);
+    cursor: pointer;
+    pointer-events: auto;
+}
+.confidential {
+    color: var(--fontGray);
+    font-size: 14px;
+    font-weight: lighter;
+    width: 195px;
+}
+.confidential a {
+    color: var(--fontGray) !important;
+}
+
+@media screen and (min-width: 1200px) {
+    .dish:not(.dishActive):hover {
+        background-color: var(--darkerColor);
+    }
+    .nextButton .button:hover {
+        background-color: var(--darkerColor);
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .content {
+        grid-template-rows: 70px 675px;
+        grid-template-columns: 540px 400px;
+    }
+    .left, .right {
+        padding-left: 45px;
+        padding-right: 45px;
+    }
+    .right {
+        background-color: var(--lighterColor);
+        grid-area: right;
+        border-bottom-right-radius: 15px;
+        border-top-right-radius: 15px;
+        padding: 43px 60px 0 42px;
+    }
+    .tagline {
+        margin-bottom: 36px;
+    }
+    .tagline p {
+        font-size: 18px;
+    }
+    .tagline .taglinePic {
+        margin-right: 8px;
+    }
+    .tagline svg {
+        width: 22px;
+        height: 22px;
+    }
+    .tab {
+        font-size: 20px;
+    }
+    .numDishes {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-bottom: 35px;
+    }
+    .dish {
+        width: 214px;
+        height: 60px;
+        padding: 0;
+        margin: 0;
+    }
+    .dish:first-child {
+        margin-right: 17px;
+        margin-bottom: 21px;
+    }
+    .menuSampleCont {
+        grid-template-rows: 35px 1fr;
+        margin-bottom: 36px;
+    }
+    .pics {
+        grid-template-rows: repeat(2, 101px);
+        grid-gap: 21px 21px;
+        padding-top: 16px;
+    }
+    .pic {
+        min-width: 134px;
+        min-height: 101px;
+    }
+    .days {
+        margin-bottom: 32px;
+    }
+    .numDaysSelect {
+        margin-bottom: 26px;
+    }
+    .day,
+    .numDays {
+        width: 144px;
+    }
+    .price {
+        margin-bottom: 21px;
+    }
+    .payment {
+        flex-flow: column;
+        margin-bottom: 34px;
+    }
+    .paymentMethod:first-child {
+        margin-bottom: 15px;
+    }
+    .phone {
+        margin-bottom: 26px;
+    }
+    .button {
+        flex-flow: column;
+        align-items: flex-start;
+    }
+    .confidential {
+        width: 230px;
+        margin: 14px 0;
+    }
+}
+
+@media screen and (max-width: 960px) {
+    .content {
+        grid-template-rows: 70px 1fr auto;
+        grid-template-columns: 620px;
+        grid-template-areas:
+            "tabs"
+            "left"
+            "right";
+    }
+    .left {
+        border-bottom-left-radius: 0;
+        height: max-content;
+        padding: 36px 58px 28px 45px;
+    }
+    .right {
+        padding-top: 40px;
+        padding-bottom: 54px;
+        border-bottom-left-radius: 15px;
+        border-top-right-radius: 0;
+    }
+    .tagline {
+        margin-bottom: 35px;
+    }
+    .dish:first-child {
+        margin-right: 17px;
+        margin-bottom: 22px;
+    }
+    .dish {
+        width: 250px;
+    }
+    .menuSampleCont {
+        grid-template-rows: 35px 1fr;
+        margin-bottom: 21px;
+    }
+    .pics {
+        grid-template-rows: 122px;
+        grid-gap: 20px 18px;
+    }
+    .pic {
+        height: 124px;
+        min-width: 160px;
+        min-height: 122px;
+    }
+    .menuLink {
+        margin-top: 20px;
+    }
+    .day,
+    .numDays {
+        width: 245px;
+    }
+    .price {
+         margin-bottom: 31px;
+    }
+    .payment {
+        flex-flow: row;
+    }
+    .paymentMethod:first-child {
+        margin-right: 100px;
+    }
+    .phone {
+        margin-bottom: 35px;
+    }
+    .button {
+        flex-flow: row;
+        align-items: center;
+    }
+    .button button {
+        width: 250px;
+        height: 60px;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .content {
+        grid-template-rows: 52px 1fr auto;
+        grid-template-columns: 460px;
+    }
+    .left, .right {
+        padding-left: 28px;
+        padding-right: 28px;
+    }
+    .left {
+        padding-top: 30px;
+    }
+    .right {
+        padding-top: 32px;
+        padding-bottom: 48px;
+    }
+    .tabs {
+        height: 52px;
+    }
+    .tab {
+        font-size: 18px;
+    }
+    .tagline {
+        margin-bottom: 24px;
+    }
+    .tagline p {
+        font-size: 16px;
+    }
+    .dish:first-child {
+        margin-right: 21px;
+    }
+    .numDishes {
+         margin-bottom: 32px;
+    }
+    .dish {
+        width: 190px;
+        height: 54px;
+    }
+    .menuSampleCont {
+        grid-template-rows: 35px 1fr;
+        margin-bottom: 26px;
+    }
+    .nextButton {
+        width: 200px;
+    }
+    .pics {
+        grid-template-rows: 95px;
+        grid-gap: 16px 14px;
+        padding-top: 22px;
+    }
+    .pic {
+        height: 97px;
+        min-width: 124px;
+        min-height: 95px;
+    }
+    .nutrition {
+        font-size: 16px;;
+    }
+    .menuLink {
+        margin-top: 15px;
+    }
+    .day,
+    .numDays {
+        width: 190px;
+        height: 54px;
+    }
+    .price {
+        margin-bottom: 21px;
+    }
+    .paymentMethod:first-child {
+        margin-right: 36px;
+    }
+    .phone {
+        margin-bottom: 32px;
+    }
+    .button {
+        flex-flow: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .button button {
+        width: 190px;
+    }
+    .confidential {
+        width: 100%;
+        margin-left: 20px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .content {
+        grid-template-rows: 45px 1fr auto;
+        grid-template-columns: 300px;
+    }
+    .left, .right {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+    .right {
+        padding-top: 36px;
+    }
+    .tagline {
+        flex-flow: row-reverse;
+        justify-content: space-between;
+        margin-bottom: 22px;
+    }
+    .tagline p {
+        text-align: start;
+        width: 210px;
+        transform: translateY(-2px);
+    }
+    .tagline .taglinePic {
+        margin-right: 0;
+        height: 34px;
+    }
+    .tagline svg {
+        width: 34px;
+        height: 34px;
+    }
+    .tabs {
+        margin-bottom: 40px;
+    }
+    .tabs {
+        height: 45px;
+    }
+    .tab {
+        font-size: 17px;
+        width: 100%;
+        padding: 0 15px;
+    }
+    .numDishes {
+        margin-bottom: 37px;
+    }
+    .dish:first-child {
+        margin-right: 11px;
+        margin-bottom: 17px;
+    }
+    .dish:last-child {
+        margin-bottom: 0;
+    }
+    .dish {
+        width: 128px;
+        height: 54px;
+        font-size: 14px;
+        padding: 0 10px;
+        line-height: 1.2em;
+    }
+    .dish.hit::after {
+        top: 0;
+        right: 10px;
+        width: 36px;
+        height: 20px;
+        transform: translateY(-50%);
+        border-radius: 7px;
+        font-size: 12px;
+    }
+    .menuSampleCont {
+        grid-template-rows: auto 1fr auto;
+        grid-template-columns: 100%;
+        grid-template-areas:
+            "text"
+            "pics"
+            "button";
+        margin-bottom: 21px;
+        place-items: center center;
+    }
+    .pics {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: 97px;
+        grid-gap: 16px 15px;
+        padding-top: 23px;
+    }
+    .pic {
+        min-width: 126px;
+        min-height: 97px;
+    }
+    .nextButton {
+        padding-top: 23px;
+    }
+    .menuSampleCont .nextButton {
+        place-self: center center;
+    }
+    .nutrition {
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        height: 64px;
+        padding: 11px 0;
+        box-sizing: border-box;
+        line-height: 1.2em;
+    }
+    .nutrition .text {
+        font-weight: bolder;
+    }
+    .day,
+    .numDays {
+        width: 128px;
+        height: 54px;
+        font-size: 14px;
+    }
+    .numDays {
+        display: flex;
+        flex-flow: column;
+    }
+    .numDaysSelect {
+        margin-bottom: 36px;
+    }
+    .paymentMethod, .phone {
+        font-size: 16px;
+    }
+    .payment {
+        flex-flow: column;
+        margin-bottom: 34px;
+    }
+    .phone {
+        margin-bottom: 17px;
+        font-size: 16px;
+    }
+    .button {
+        flex-flow: column;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .button button, .orderInfo, .confidential {
+        width: 100%;
+    }
+    .confidential {
+        text-align: center;
+        margin: 20px 0 0 0;
+    }
+}

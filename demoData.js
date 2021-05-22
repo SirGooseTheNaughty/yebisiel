@@ -1,3 +1,5 @@
+const fbq = (any) => {};
+
 const menuLinks = {
     home: '#home',
     lite: '#lite',
