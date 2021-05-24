@@ -268,6 +268,7 @@ changePhoneNumber();
 resetOrderInfo();
 redrawNutrition();
 changeMenuLink();
+redrawPrices();
 phone.value = '';
 
 // phone mask
