@@ -4,9 +4,9 @@
     --fontGray: #828282;
     --fontGray2: #4F4F4F;
 
-    --homeColor: #FFCC99;
-    --liteColor: #D6E5B1;
-    --avanColor: #BFBAC6;
+    --homeColor: #F5D5B5;
+    --liteColor: #DCE7C1 ;
+    --avanColor: #D5D0DC;
 
     --orderBtnColor: #F08D46;
     --orderBtnDisactive: #CDCDCD;
@@ -278,7 +278,7 @@
 }
 .totalPrice {
     font-size: 24px;
-    font-weight: bolder;
+    font-weight: 500;
     color: var(--fontGray2);
     margin-bottom: 3px;
 }
@@ -430,6 +430,12 @@
     .dish:first-child {
         margin-right: 17px;
         margin-bottom: 21px;
+    }
+    .content[data-active-tab='lite'] .dish:first-child {
+        margin-bottom: 0;
+    }
+    .nextButton {
+        width: 120px;
     }
     .menuSampleCont {
         grid-template-rows: 35px 1fr;
@@ -591,9 +597,6 @@
         grid-template-rows: 35px 1fr;
         margin-bottom: 26px;
     }
-    .nextButton {
-        width: 200px;
-    }
     .pics {
         grid-template-rows: 95px;
         grid-gap: 16px 14px;
@@ -726,6 +729,7 @@
         min-height: 97px;
     }
     .nextButton {
+        width: 220px;
         padding-top: 23px;
     }
     .menuSampleCont .nextButton {

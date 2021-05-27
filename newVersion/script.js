@@ -62,6 +62,7 @@ function setActiveTab () {
             tabs[tabId].classList.remove('tabActive');
         }
     }
+    content.setAttribute('data-active-tab', tab);
 }
 
 function setActiveDays () {
@@ -120,7 +121,12 @@ function incrementDay (direction) {
 }
 
 function redrawDayText () {
-    nextBtnText.textContent = daysTexts[state.day];
+    const ww = $(window).width();
+    let key = 'long';
+    if (ww < 1200 && ww > 460) {
+        key = 'short';
+    }
+    nextBtnText.textContent = daysTexts[key][state.day];
 }
 
 function redrawDishesExamples () {
@@ -284,6 +290,8 @@ nextBtns.prev.addEventListener('click', () => clickNext(-1));
 
 $(phone).on('input', changePhoneNumber);
 
+window.onresize = redrawDayText;
+
 // initial pics
 redrawDishesExamples();
 changePhoneNumber();
@@ -293,6 +301,7 @@ changeMenuLink();
 setPrice();
 redrawPrice();
 redrawDaytags();
+redrawDayText();
 phone.value = '';
 
 // phone mask

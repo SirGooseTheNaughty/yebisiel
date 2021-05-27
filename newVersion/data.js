@@ -69,21 +69,32 @@ const drinkText = ' + напиток';
 place for demoPics
 */
 const colorSchemes = {
-    home: '--lighterColor: #FFF7EC; --mainColor: #FFCC99; --darkerColor: #F9E1C3; --darkColor: #F08D46; --nutritionColor: #EBAE70',
-    lite: '--lighterColor: #F0F4E5 ; --mainColor: #D6E5B1; --darkerColor: #C5D699 ; --darkColor: #B0CB6C; --nutritionColor: #BAD084',
-    avan: '--lighterColor: #E2DEE7; --mainColor: #BFBAC6; --darkerColor: #ACA7B5; --darkColor: #8D839C; --nutritionColor: #9791A0'
+    home: '--lighterColor: #FFF7EC; --mainColor: #F5D5B5 ; --darkerColor: #F9E1C3; --darkColor: #F08D46; --nutritionColor: #EBAE70',
+    lite: '--lighterColor: #F0F4E5 ; --mainColor: #DCE7C1; --darkerColor: #C5D699 ; --darkColor: #B0CB6C; --nutritionColor: #BAD084',
+    avan: '--lighterColor: #F2F2F2; --mainColor: #D5D0DC; --darkerColor: #ACA7B5; --darkColor: #8D839C; --nutritionColor: #9791A0'
 };
 const taglineTexts = {
     home: 'Знакомый вкус для повседневной жизни ',
     lite: 'Баланс привычной еды для красивой фигуры',
     avan: 'Палитра блюд различных стран мира'
 };
-const daysTexts = [
-    'Понедельник',
-    'Вторник',
-    'Среда',
-    'Четверг',
-    'Пятница',
-    'Суббота',
-    'Воскресенье'
-];
+const daysTexts = {
+    long: [
+        'Понедельник',
+        'Вторник',
+        'Среда',
+        'Четверг',
+        'Пятница',
+        'Суббота',
+        'Воскресенье'
+    ],
+    short: [
+        'ПН',
+        'ВТ',
+        'СР',
+        'ЧТ',
+        'ПТ',
+        'СБ',
+        'ВС'
+    ]
+};
