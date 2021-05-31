@@ -49,8 +49,14 @@ const tagline = {
 const nitrition = document.querySelector('.nutrition .values');
 const menuLink = document.querySelector('.menuLink');
 const picElement = (url) => {
-    return `<img src="${url}" alt="dish example" class="pic">`;
+    return `<div class="dishPicCont">${popupIcon}<img src="${url}" alt="dish example" class="pic"></div>`;
 }
+const dishPopup = {
+    popup: content.querySelector('.dishPopup'),
+    title: content.querySelector('.dishPopup__title'),
+    weight: content.querySelector('.dishPopup__weightValue'),
+    ing: content.querySelector('.dishPopup__ingValue')
+};
 
 // статичные данные
 const possibleDishes = {

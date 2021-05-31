@@ -204,11 +204,59 @@
     box-sizing: border-box;
 }
 .pic {
-    min-width: 163px;
-    min-height: 121px;
     max-width: 100%;
     max-height: 100%;
     user-select: none;
+}
+.dishPicCont {
+    width: 163px;
+    height: 121px;
+    position: relative;
+}
+.dishPopup__icon {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    opacity: 0;
+    cursor: pointer;
+}
+.dishPicCont:hover .dishPopup__icon {
+    opacity: 1;
+}
+.dishPopup {
+    position: absolute;
+    top: 20%;
+    left: 10%;
+    max-width: 190px;
+    background-color: white;
+    border-radius: 10px;
+    padding: 19px 16px;
+    font-size: 14px;
+    font-weight: 600;
+    box-sizing: border-box;
+    transition: opacity 0.4s;
+}
+.dishPopup__title {
+    color: var(--fontBlack);
+    margin-bottom: 12px;
+}
+.dishPopup__weight,
+.dishPopup__ing {
+    color: var(--fontBlack);
+    margin-bottom: 5px;
+    color: var(--orderBtnColor);
+}
+.dishPopup__weight {
+    margin-bottom: 5px;
+}
+.dishPopup__weightValue,
+.dishPopup__ingValue {
+    color: var(--fontGray2);
+    font-weight: 400;
+}
+.hidden {
+    opacity: 0;
+    pointer-events: none;
 }
 .nutrition {
     background-color: var(--nutritionColor);
@@ -446,9 +494,12 @@
         grid-gap: 21px 21px;
         padding-top: 16px;
     }
-    .pic {
-        min-width: 134px;
-        min-height: 101px;
+    .dishPopup__icon {
+        opacity: 1;
+    }
+    .dishPicCont {
+        width: 134px;
+        height: 101px;
     }
     .days {
         margin-bottom: 32px;
@@ -523,8 +574,10 @@
     }
     .pic {
         height: 124px;
-        min-width: 160px;
-        min-height: 122px;
+    }
+    .dishPicCont {
+        width: 160px;
+        height: 122px;
     }
     .menuLink {
         margin-top: 20px;
@@ -604,8 +657,10 @@
     }
     .pic {
         height: 97px;
-        min-width: 124px;
-        min-height: 95px;
+    }
+    .dishPicCont {
+        width: 124px;
+        height: 95px;
     }
     .nutrition {
         font-size: 16px;;
@@ -724,9 +779,9 @@
         grid-gap: 16px 15px;
         padding-top: 23px;
     }
-    .pic {
-        min-width: 126px;
-        min-height: 97px;
+    .dishPicCont {
+        width: 126px;
+        height: 97px;
     }
     .nextButton {
         width: 220px;

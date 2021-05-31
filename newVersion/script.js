@@ -8,6 +8,7 @@ const state = {
     payment: 'card',
     price: 0,
     phone: '',
+    activeDish: 0,
     get: function(id) {
         return this[id];
     },
@@ -136,6 +137,50 @@ function redrawDishesExamples () {
     imgUrls.forEach(url => {
         dishExamples.innerHTML += picElement(url);
     });
+    resetIconsEvents();
+}
+
+function resetIconsEvents () {
+    const icons = content.querySelectorAll('.dishPopup__icon');
+    icons.forEach((icon, i) => {
+        icon.addEventListener('mouseenter', (e) => {
+            setActiveDish(i);
+            redrawDishPopup(e);
+        });
+        icon.addEventListener('mouseleave', (e) => {
+            setActiveDish(null);
+            redrawDishPopup(e);
+        });
+        icon.addEventListener('click', (e) => {
+            setActiveDish(i);
+            redrawDishPopup(e);
+            e.stopPropagation();
+        });
+        content.addEventListener('click', (e) => {
+            setActiveDish(null);
+            redrawDishPopup(e);
+        });
+    });
+}
+
+function redrawDishPopup (e) {
+    const { tab, activeDish, day } = state;
+    if (activeDish == null) {
+        dishPopup.popup.classList.add('hidden');
+        return;
+    };
+    const { name, weight, ing } = dishesInfo[tab][day][activeDish];
+    dishPopup.title.textContent = '' + name;
+    dishPopup.weight.textContent = '' + weight;
+    dishPopup.ing.textContent = '' + ing;
+    let { clientX, clientY } = e;
+    const { right } = dishExamples.getBoundingClientRect();
+    if (clientX + dishPopup.popup.offsetWidth > right) {
+        clientX -= dishPopup.popup.offsetWidth;
+    }
+    dishPopup.popup.style.top = `${clientY + 10}px`;
+    dishPopup.popup.style.left = `${clientX}px`;
+    dishPopup.popup.classList.remove('hidden');
 }
 
 function redrawDaytags () {
@@ -252,6 +297,10 @@ function clickNumDays (numDays) {
 function clickPaymentMethod (method) {
     state.set('payment', method);
     setActivePayment();
+}
+
+function setActiveDish (i) {
+    state.set('activeDish', i);
 }
 
 // обработчики кликов
