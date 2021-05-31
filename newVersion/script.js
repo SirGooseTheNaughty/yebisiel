@@ -174,9 +174,12 @@ function redrawDishPopup (e) {
     dishPopup.weight.textContent = '' + weight;
     dishPopup.ing.textContent = '' + ing;
     let { clientX, clientY } = e;
-    const { right } = dishExamples.getBoundingClientRect();
+    const { right, left } = dishExamples.getBoundingClientRect();
     if (clientX + dishPopup.popup.offsetWidth > right) {
         clientX -= dishPopup.popup.offsetWidth;
+    }
+    if (clientX < left) {
+        clientX = left;
     }
     dishPopup.popup.style.top = `${clientY + 10}px`;
     dishPopup.popup.style.left = `${clientX}px`;
