@@ -173,16 +173,16 @@ function redrawDishPopup (e) {
     dishPopup.title.textContent = '' + name;
     dishPopup.weight.textContent = '' + weight;
     dishPopup.ing.textContent = '' + ing;
-    let { clientX, clientY } = e;
+    let { pageX, pageY } = e;
     const { right, left } = dishExamples.getBoundingClientRect();
-    if (clientX + dishPopup.popup.offsetWidth > right) {
-        clientX -= dishPopup.popup.offsetWidth;
+    if (pageX + dishPopup.popup.offsetWidth > right) {
+        pageX -= dishPopup.popup.offsetWidth;
     }
-    if (clientX < left) {
-        clientX = left;
+    if (pageX < left) {
+        pageX = left;
     }
-    dishPopup.popup.style.top = `${clientY + 10}px`;
-    dishPopup.popup.style.left = `${clientX}px`;
+    dishPopup.popup.style.top = `${pageY + 10}px`;
+    dishPopup.popup.style.left = `${pageX}px`;
     dishPopup.popup.classList.remove('hidden');
 }
 
