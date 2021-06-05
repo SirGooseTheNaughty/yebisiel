@@ -97,6 +97,14 @@
     user-select: auto;
     margin: 0;
 }
+.leftContent {
+    display: grid;
+    grid-template-rows: repeat(4, auto);
+    grid-template-areas: 
+        "first"
+        "second"
+        "third";
+}
 .numDishes {
     display: flex;
     justify-content: space-between;
@@ -452,13 +460,14 @@
     }
     .tagline p {
         font-size: 18px;
+        transform: translateY(3px); 
     }
     .tagline .taglinePic {
-        margin-right: 8px;
+        margin-right: 18px;
     }
     .tagline svg {
-        width: 22px;
-        height: 22px;
+        width: 30px;
+        height: 30px;
     }
     .tab {
         font-size: 20px;
@@ -546,7 +555,7 @@
     .left {
         border-bottom-left-radius: 0;
         height: max-content;
-        padding: 36px 58px 28px 45px;
+        padding: 36px 58px 35px 45px;
     }
     .right {
         padding-top: 40px;
@@ -555,7 +564,16 @@
         border-top-right-radius: 0;
     }
     .tagline {
-        margin-bottom: 35px;
+        margin-bottom: 31px;
+    }
+    .numDishes {
+        margin-top: 32px;
+        margin-bottom: 0;
+        grid-area: third;
+    }
+    .nextButton .button {
+        width: 28px;
+        height: 28px;
     }
     .dish:first-child {
         margin-right: 17px;
@@ -567,6 +585,7 @@
     .menuSampleCont {
         grid-template-rows: 35px 1fr;
         margin-bottom: 21px;
+        grid-area: first;
     }
     .pics {
         grid-template-rows: 122px;
@@ -579,8 +598,11 @@
         width: 160px;
         height: 122px;
     }
+    .nutritionAndLink {
+        grid-area: second;
+    }
     .menuLink {
-        margin-top: 20px;
+        margin-top: 15px;
     }
     .day,
     .numDays {
@@ -638,9 +660,6 @@
     }
     .dish:first-child {
         margin-right: 21px;
-    }
-    .numDishes {
-         margin-bottom: 32px;
     }
     .dish {
         width: 190px;
@@ -736,9 +755,6 @@
         font-size: 17px;
         width: 100%;
         padding: 0 15px;
-    }
-    .numDishes {
-        margin-bottom: 37px;
     }
     .dish:first-child {
         margin-right: 11px;
