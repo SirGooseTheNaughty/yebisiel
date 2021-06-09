@@ -555,10 +555,11 @@
     .left {
         border-bottom-left-radius: 0;
         height: max-content;
-        padding: 36px 58px 35px 45px;
+        padding: 36px 58px 0 45px;
     }
     .right {
-        padding-top: 40px;
+        background-color: var(--mainColor);
+        padding-top: 32px;
         padding-bottom: 54px;
         border-bottom-left-radius: 15px;
         border-top-right-radius: 0;
@@ -606,7 +607,9 @@
     }
     .day,
     .numDays {
+        background-color: var(--lighterColor);
         width: 245px;
+        height: 60px;
     }
     .price {
          margin-bottom: 31px;
@@ -616,6 +619,9 @@
     }
     .paymentMethod:first-child {
         margin-right: 100px;
+    }
+    .paymentMethod::before {
+        background-color: var(--lighterColor);
     }
     .phone {
         margin-bottom: 35px;
@@ -643,7 +649,6 @@
         padding-top: 30px;
     }
     .right {
-        padding-top: 32px;
         padding-bottom: 48px;
     }
     .tabs {
@@ -725,7 +730,7 @@
         padding-right: 16px;
     }
     .right {
-        padding-top: 36px;
+        padding-top: 40px;
     }
     .tagline {
         flex-flow: row-reverse;

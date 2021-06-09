@@ -345,16 +345,26 @@ $(phone).on('input', changePhoneNumber);
 window.onresize = redrawDayText;
 
 // initial pics
-redrawDishesExamples();
-changePhoneNumber();
-resetOrderInfo();
-redrawNutrition();
-changeMenuLink();
-setPrice();
-redrawPrice();
-redrawDaytags();
-redrawDayText();
+redrawConfigurator();
 phone.value = '';
+
+function redrawConfigurator () {
+    setColorScheme();
+    setTaglineText();
+    setNumDishesTabs();
+    setActiveTab();
+    setActiveNumDishes();
+    redrawDishesExamples();
+    setPrice();
+    redrawDaytags();
+    redrawDayText();
+    redrawPrice();
+    resetOrderInfo();
+    redrawNutrition();
+    changeMenuLink();
+    fixMarginForLite();
+    changePhoneNumber();
+}
 
 // phone mask
 $(phone).inputmask("+7 (999) 999-99-99", {
