@@ -13,7 +13,7 @@
     </script>
     <script src="../jquery.inputmask.min.js"></script>
 </head>
-<body>
+<body style="padding: 0; padding-top: 67px">
     <div class="configurator">
         <div class="content" style="--lighterColor: #FFF7EC; --mainColor: #F5D5B5; --darkerColor: #F9E1C3; --darkColor: #F08D46; --nutritionColor: #EBAE70">
             <div class="tabs">
@@ -101,6 +101,15 @@
                         <span class="dayPrice">(750 р/день)</span>
                     </div>
                 </div>
+                <div class="promo enter">
+                    <input class="promocode" type="text" placeholder="Введите промокод"></input>
+                    <div class="promo__pic">
+                        <svg width="19" height="16" viewBox="0 0 19 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M-3.44289e-07 8.00004C-3.57331e-07 7.70167 0.118526 7.41553 0.329505 7.20455C0.540483 6.99357 0.826631 6.87504 1.125 6.87504L14.1592 6.87504L9.3285 2.04654C9.2239 1.94195 9.14093 1.81777 9.08432 1.68111C9.02771 1.54444 8.99858 1.39797 8.99858 1.25004C8.99858 1.10212 9.02771 0.955643 9.08432 0.81898C9.14093 0.682316 9.2239 0.55814 9.3285 0.453542C9.4331 0.348945 9.55727 0.265973 9.69394 0.209365C9.8306 0.152757 9.97708 0.123622 10.125 0.123622C10.2729 0.123622 10.4194 0.152757 10.5561 0.209365C10.6927 0.265973 10.8169 0.348945 10.9215 0.453542L17.6715 7.20354C17.7763 7.30804 17.8594 7.43219 17.9161 7.56887C17.9728 7.70554 18.002 7.85207 18.002 8.00004C18.002 8.14802 17.9728 8.29454 17.9161 8.43122C17.8594 8.5679 17.7763 8.69204 17.6715 8.79654L10.9215 15.5465C10.8169 15.6511 10.6927 15.7341 10.5561 15.7907C10.4194 15.8473 10.2729 15.8765 10.125 15.8765C9.97708 15.8765 9.8306 15.8473 9.69394 15.7907C9.55727 15.7341 9.4331 15.6511 9.3285 15.5465C9.11726 15.3353 8.99858 15.0488 8.99858 14.75C8.99858 14.6021 9.02771 14.4556 9.08432 14.319C9.14093 14.1823 9.2239 14.0581 9.3285 13.9535L14.1592 9.12504L1.125 9.12504C0.826631 9.12504 0.540483 9.00652 0.329505 8.79554C0.118526 8.58456 -3.31247e-07 8.29841 -3.44289e-07 8.00004Z" fill="#F2F2F2"/>
+                        </svg>
+                    </div>
+                    <div class="promo__status"></div>
+                </div>
                 <div class="price">
                     <div class="priceLabel">Итого:</div>
                     <div class="priseResults">
@@ -132,6 +141,8 @@
     <script src="../demoData.js"></script>
     <script src="connectBasket.js"></script>
     <script src="../nutritionData.js"></script>
+    <script src="promoValues.js"></script>
+    <script src="pixels.js"></script>
     <script src="script.js"></script>
     <script src="urlParser.js"></script>
 </body>

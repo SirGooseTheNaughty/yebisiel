@@ -1,3 +1,5 @@
+const projectId = '2857002';
+
 // элементы взаимодействия
 const content = document.querySelector('.content');
 const tabs = {
@@ -35,6 +37,12 @@ const priceTags = {
 };
 const priceText = document.querySelector('.totalPrice');
 const yourProfitTag = document.querySelector('.yourProfit');
+const promocode = {
+    container: document.querySelector('.promo'),
+    code: document.querySelector('.promocode'),
+    pic: document.querySelector('.promo__pic'),
+    status: document.querySelector('.promo__status')
+};
 const payment = {
     cash: document.querySelector('.cash'),
     card: document.querySelector('.card')
@@ -57,6 +65,7 @@ const dishPopup = {
     weight: content.querySelector('.dishPopup__weightValue'),
     ing: content.querySelector('.dishPopup__ingValue')
 };
+const leadTextCont = document.querySelector('[data-elem-id="1622810285995"] .tn-atom');
 
 // статичные данные
 const possibleDishes = {
@@ -104,3 +113,22 @@ const daysTexts = {
         'ВС'
     ]
 };
+const promoResultsTexts = {
+    ok: 'Скидка применена',
+    bad: 'Промокод не применим к этому товару'
+};
+const possibleURLParams = {
+    types: ['home', 'lite', 'avan'],
+    num_dishes: ['three', 'four', 'five', 'six'],
+    periods: ['each', 'work'],
+    num_days: ['five', 'twenty']
+};
+const DISC_TYPES = {
+    sum: 'sum',
+    percent: 'persent'
+};
+// const leadTexts = [
+//     'Рацион на 5 дней всего за 2900 Р.',
+//     'Рацион на 7 дней всего за 3900 Р.',
+//     '5 полноценных блюд всего за 720 Р/день.'
+// ];

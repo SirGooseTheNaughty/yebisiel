@@ -29,10 +29,9 @@
 }
 .content {
     display: grid;
-    grid-template-rows: 61px 670px auto;
+    grid-template-rows: 670px auto;
     grid-template-columns: 660px 500px;
     grid-template-areas:
-        "tabs ."
         "left right"
         ". right";
     color: var(--fontBlack);
@@ -40,16 +39,11 @@
 }
 
 /* segments */
-.tabs {
-    grid-area: tabs;
-    display: flex;
-    align-items: flex-end;
-    height: 61px;
-}
 .left {
     background-color: var(--mainColor);
     grid-area: left;
     border-bottom-left-radius: 15px;
+    border-top-left-radius: 15px;
     padding: 41px 48px 18px 48px;
 }
 .right {
@@ -57,33 +51,7 @@
     grid-area: right;
     border-bottom-right-radius: 15px;
     border-top-right-radius: 15px;
-    padding: 63px 51px 64px 51px;
-}
-
-/* tabs */
-.tab {
-    width: 220px;
-    height: 90%;
-    border-radius: 15px 15px 0 0;
-    display: grid;
-    place-items: center;
-    color: white;
-    font-size: 24px;
-    transition: height 0.4s ease;
-    cursor: pointer;
-}
-.tabActive {
-    height: 100%;
-    font-weight: bold;
-}
-.tabHome {
-    background-color: var(--homeColor);
-}
-.tabLite {
-    background-color: var(--liteColor);
-}
-.tabAvan {
-    background-color: var(--avanColor);
+    padding: 46px 51px 64px 51px;
 }
 
 /* left */
@@ -493,7 +461,7 @@
 
 @media screen and (max-width: 1200px) {
     .content {
-        grid-template-rows: 61px 685px;
+        grid-template-rows: 685px;
         grid-template-columns: 540px 400px;
     }
     .left, .right {
@@ -597,7 +565,7 @@
 
 @media screen and (max-width: 960px) {
     .content {
-        grid-template-rows: 61px 1fr auto;
+        grid-template-rows: 1fr auto;
         grid-template-columns: 620px;
         grid-template-areas:
             "tabs"
@@ -605,6 +573,7 @@
             "right";
     }
     .left {
+        border-top-right-radius: 15px;
         border-bottom-left-radius: 0;
         height: max-content;
         padding: 36px 58px 0 45px;
@@ -690,7 +659,7 @@
 
 @media screen and (max-width: 640px) {
     .content {
-        grid-template-rows: 52px 1fr auto;
+        grid-template-rows: 1fr auto;
         grid-template-columns: 460px;
     }
     .left, .right {
@@ -702,12 +671,6 @@
     }
     .right {
         padding-bottom: 48px;
-    }
-    .tabs {
-        height: 52px;
-    }
-    .tab {
-        font-size: 18px;
     }
     .tagline {
         margin-bottom: 24px;
@@ -774,7 +737,7 @@
 
 @media screen and (max-width: 480px) {
     .content {
-        grid-template-rows: 45px 1fr auto;
+        grid-template-rows: 1fr auto;
         grid-template-columns: 300px;
     }
     .left, .right {
@@ -801,17 +764,6 @@
     .tagline svg {
         width: 34px;
         height: 34px;
-    }
-    .tabs {
-        margin-bottom: 40px;
-    }
-    .tabs {
-        height: 45px;
-    }
-    .tab {
-        font-size: 17px;
-        width: 100%;
-        padding: 0 15px;
     }
     .dish:first-child {
         margin-right: 11px;

@@ -20,32 +20,6 @@ const state = {
     }
 };
 
-// функции вычисления и установки состояния
-function setColorScheme () {
-    content.style = colorSchemes[state.get('tab')]
-}
-
-function setTaglineText () {
-    tagline.text.textContent = taglineTexts[state.get('tab')];
-    tagline.img.innerHTML = svgPics[state.get('tab')];
-}
-
-function setNumDishesTabs () {
-    const { tab } = state;
-    const possDishes = possibleDishes[tab];
-    for (const dishTab in numDishes) {
-        if (possDishes.indexOf(dishTab) === -1) {
-            numDishes[dishTab].style.display = 'none';
-            if (state.numDishes === 'four' || state.numDishes === 'six') {
-                state.set('numDishes', 'five');
-            }
-        } else {
-            numDishes[dishTab].style.display = 'grid';
-            numDishes[dishTab].textContent = tab !== 'lite' ? numDishTexts[dishTab] + drinkText : numDishTexts[dishTab];
-        }
-    }
-}
-
 function setActiveNumDishes () {
     const activeTab = state.get('numDishes');
     for (const dishTab in numDishes) {
@@ -55,18 +29,6 @@ function setActiveNumDishes () {
             numDishes[dishTab].classList.remove('dishActive');
         }
     }
-}
-
-function setActiveTab () {
-    const { tab } = state;
-    for (let tabId in tabs) {
-        if (tabId === tab) {
-            tabs[tabId].classList.add('tabActive');
-        } else {
-            tabs[tabId].classList.remove('tabActive');
-        }
-    }
-    content.setAttribute('data-active-tab', tab);
 }
 
 function setActiveDays () {
@@ -233,24 +195,12 @@ function redrawNutrition () {
     nitrition.textContent = nutrText;
 }
 
-function changeMenuLink () {
-    menuLink.setAttribute('href', menuLinks[state.tab]);
-}
-
 function changePhoneNumber () {
     state.set('phone', this.value || phone.value);
     if (state.phone.split('').indexOf('_') !== -1) {
         orderBtn.classList.remove('active');
         orderBtn.removeEventListener('click', handleOrder);
         orderInfoLink.style.pointerEvents = 'none';
-    }
-}
-
-function fixMarginForLite () {
-    if (state.tab === 'lite') {
-        numDishes.five.classList.add('noMargin');
-    } else {
-        numDishes.five.classList.remove('noMargin');
     }
 }
 
@@ -276,26 +226,6 @@ function changePromoStatus (status) {
 }
 
 // функции-обработчики
-function clickTab (tabId) {
-    state.set('tab', tabId);
-    setColorScheme();
-    setTaglineText();
-    setNumDishesTabs();
-    setActiveTab();
-    setActiveNumDishes();
-    redrawDishesExamples();
-    setPrice();
-    redrawDaytags();
-    redrawPrice();
-    resetOrderInfo();
-    redrawNutrition();
-    changeMenuLink();
-    fixMarginForLite();
-    changePromoStatus('enter');
-    FBpixel.trackMenu();
-    VKpixel.trackCheckout();
-}
-
 function clickNumDishes (numDishes) {
     state.set('numDishes', numDishes);
     setActiveNumDishes();
@@ -351,6 +281,10 @@ function clickPaymentMethod (method) {
 
 function setActiveDish (i) {
     state.set('activeDish', i);
+}
+
+function changeMenuLink () {
+    menuLink.setAttribute('href', menuLinks[state.tab]);
 }
 
 function inputPromocode () {
@@ -424,12 +358,6 @@ function checkPromocodeInternally () {
 }
 
 // обработчики кликов
-for (let tab in tabs) {
-    tabs[tab].addEventListener('click', () => {
-        clickTab(tab);
-    });
-}
-
 for (let numDish in numDishes) {
     numDishes[numDish].addEventListener('click', () => {
         clickNumDishes(numDish);
@@ -476,10 +404,7 @@ phone.value = '';
 promocode.code.value = '';
 
 function redrawConfigurator () {
-    setColorScheme();
-    setTaglineText();
-    setNumDishesTabs();
-    setActiveTab();
+    changeMenuLink();
     setActiveNumDishes();
     redrawDishesExamples();
     setActiveDays();
@@ -490,8 +415,6 @@ function redrawConfigurator () {
     redrawPrice();
     resetOrderInfo();
     redrawNutrition();
-    changeMenuLink();
-    fixMarginForLite();
     changePhoneNumber();
 }
 

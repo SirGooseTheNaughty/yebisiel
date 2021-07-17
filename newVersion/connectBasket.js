@@ -1,4 +1,4 @@
-let basket, priceField, phoneField, menuField, numDishesField, numDaysField, paumentCash, paumentCard, dict, submit, productsCont;
+let basket, priceField, phoneField, menuField, numDishesField, numDaysField, paumentCash, paumentCard, dict, submit, productsCont, promoField, promoBtn;
 const orderDict = {
     menus: {
         home: 'домашнее',
@@ -24,7 +24,7 @@ const orderDict = {
 }
 
 const int = setInterval(() => {
-    basket = document.querySelector('#rec313869959');
+    basket = document.querySelector('#rec313869959'); // rec331499307 // rec313869959
     if (basket) {
         clearInterval(int);
         setBasketConnection();
@@ -41,15 +41,21 @@ function setBasketConnection () {
     paymentCard = basket.querySelector('[name="paymentsystem"][value="cloudpayments"]');
     submit = basket.querySelector('.t-submit');
     productsCont = basket.querySelector('.t706__cartwin-products');
+    promoField = basket.querySelector('.t-inputpromocode');
+    promoBtn = basket.querySelector('.t-inputpromocode__btn');
 }
     
 function fillBasket () {
-    const { tab, numDishes, daysSelection, numDays, payment, phone, price } = state;
+    const { tab, numDishes, daysSelection, numDays, payment, phone, price, promocode, discount } = state;
     priceField.innerHTML = '' + price;
     phoneField.value = phone;
     menuField.value = orderDict.menus[tab];
     numDishesField.value = orderDict.numDishes[numDishes];
     numDaysField.value = orderDict.numDays[numDays][daysSelection];
+    if (discount) {
+        promoField.value = promocode;
+        promoBtn.click();
+    }
     if (payment === 'card') {
         paymentCard.click();
     } else {
