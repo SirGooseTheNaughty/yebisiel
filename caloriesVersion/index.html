@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script
+        src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+        crossorigin="anonymous">
+    </script>
+    <script src="../jquery.inputmask.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div class="config-menu">
+            <div class="tabs">
+                <div
+                    class="tab body"
+                    :class="{ active: getIsActive('tab body') }"
+                    v-on:click="setProperty('tab', 'body')"
+                >
+                    <p class="tab__upper">Баланс</p>
+                    <p class="tab__lower">стройного тела</p>
+                </div>
+                <div
+                    class="tab daily"
+                    :class="{ active: getIsActive('tab daily') }"
+                    v-on:click="setProperty('tab', 'daily')"
+                >
+                    <p class="tab__upper">Баланс</p>
+                    <p class="tab__lower">повседневный</p>
+                </div>
+                <div
+                    class="tab life"
+                    :class="{ active: getIsActive('tab life') }"
+                    v-on:click="setProperty('tab', 'life')"
+                >
+                    <p class="tab__upper">Баланс</p>
+                    <p class="tab__lower">активной жизни</p>
+                </div>
+            </div>
+            <div class="calories-and-text">
+                <div class="calories">
+                    <div
+                        class="ccal ccal-1200"
+                        :class="{ active: getIsActive('ccal ccal-1200'), disabled: getIsDisabled('ccal-1200') }"
+                        v-on:click="setProperty('ccal', 'ccal-1200')">1200 ккал
+                    </div>
+                    <div
+                        class="ccal ccal-1600"
+                        :class="{ active: getIsActive('ccal ccal-1600'), disabled: getIsDisabled('ccal-1600') }"
+                        v-on:click="setProperty('ccal', 'ccal-1600')">1600 ккал
+                    </div>
+                    <div
+                        class="ccal ccal-2000"
+                        :class="{ active: getIsActive('ccal ccal-2000'), disabled: getIsDisabled('ccal-2000') }"
+                        v-on:click="setProperty('ccal', 'ccal-2000')">2000 ккал
+                    </div>
+                    <div
+                        class="ccal ccal-2500"
+                        :class="{ active: getIsActive('ccal ccal-2500'), disabled: getIsDisabled('ccal-2500') }"
+                        v-on:click="setProperty('ccal', 'ccal-2500')">2500 ккал
+                    </div>
+                </div>
+                <div class="ccal-text">
+                    Сбалансированный рацион для желающих сбросить вес и скорректировать фигуру. Оптимально подобранные нутриенты для поддержания стройности и жизненной энергии.
+                    <br><br>
+                    Включает 5 блюд для 5 приемов пищи в течении дня содержит достаточное количество микроэлементов необходимых в день для организма.
+                </div>
+            </div>
+            <div class="duration">
+                <div
+                    class="duration__tab dur-0"
+                    :class="{ active: getIsActive('duration dur-0') }"
+                    v-on:click="setProperty('duration', 'dur-0')">Попробовать
+                </div>
+                <div
+                    class="duration__tab dur-1"
+                    :class="{ active: getIsActive('duration dur-1') }"
+                    v-on:click="setProperty('duration', 'dur-1')">1 неделя
+                </div>
+                <div
+                    class="duration__tab dur-2"
+                    :class="{ active: getIsActive('duration dur-2') }"
+                    v-on:click="setProperty('duration', 'dur-2')">2 недели
+                </div>
+                <div
+                    class="duration__tab dur-3"
+                    :class="{ active: getIsActive('duration dur-3') }"
+                    v-on:click="setProperty('duration', 'dur-3')">3 недели
+                </div>
+            </div>
+        </div>
+        <div class="config-checkout">
+            <div class="menu-sample">
+                <div class="sapmle__title">Пример меню на день</div>
+                <div class="sample__pics">
+                    <div v-for="pic in picsUrls">
+                        <img :src="pic" alt="dish example" class="pic">
+                    </div>
+                </div>
+                <div class="sample__price">{{ `Итого ${price} Р` }}</div>
+            </div>
+            <div class="controls">
+                <div
+                    class="controls__button delivery morning"
+                    :class="{ active: getIsActive('controls__button delivery morning') }"
+                    v-on:click="setProperty('delivery', 'morning')">Утренняя доставка
+                </div>
+                <div
+                    class="controls__button delivery evening"
+                    :class="{ active: getIsActive('controls__button delivery evening') }"
+                    v-on:click="setProperty('delivery', 'evening')">Вечерняя доставка
+                </div>
+            </div>
+            <div class="controls">
+                <div
+                    class="controls__button payment cash"
+                    :class="{ active: getIsActive('controls__button payment cash') }"
+                    v-on:click="setProperty('payment', 'cash')">Оплата курьеру
+                </div>
+                <div
+                    class="controls__button payment card"
+                    :class="{ active: getIsActive('controls__button payment card') }"
+                    v-on:click="setProperty('payment', 'card')">Оплата онлайн
+                </div>
+            </div>
+        </div>
+        <div class="checkout">
+            <div class="controls inputs">
+                <div class="controls__input-wrapper">
+                    <input type="text"
+                        class="controls__input promocode"
+                        placeholder="Введите промокод">
+                    </input>
+                    <div class="promocode__button" v-html="promocodeButtonPic"></div>
+                </div>
+                <input type="text"
+                    class="controls__input phone"
+                    placeholder="Введите номер телефона">
+                </input>
+            </div>
+            <button class="order disabled">ЗАКАЗАТЬ</button>
+        </div>
+    </div>
+
+    <script src="pics.js"></script>
+    <script src="svgs.js"></script>
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+    <script>
+        $('.phone').inputmask("+7 (999) 999-99-99", {
+            "oncomplete": function () {
+                $('.order').removeClass('disabled');
+            },
+            "onincomplete": function () {
+                $('.order').addClass('disabled');
+            }
+        });
+    </script>
+</body>
+</html>

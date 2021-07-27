@@ -33,10 +33,7 @@ const int = setInterval(() => {
 
 function setBasketConnection () {
     priceField = basket.querySelector('.t706__cartwin-prodamount');
-    phoneField = basket.querySelector('[data-input-lid="1496239459190"] input');
-    menuField = basket.querySelector('[data-input-lid="1602789521102"] input');
-    numDishesField = basket.querySelector('[data-input-lid="1620733210076"] input');
-    numDaysField = basket.querySelector('[data-input-lid="1620733232870"] input');
+    phoneField = basket.querySelector('input[name="phone"]');
     paymentCash = basket.querySelector('[name="paymentsystem"][value="cash"]');
     paymentCard = basket.querySelector('[name="paymentsystem"][value="cloudpayments"]');
     submit = basket.querySelector('.t-submit');
