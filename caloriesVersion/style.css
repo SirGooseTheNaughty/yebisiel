@@ -27,10 +27,10 @@ p {
     margin: 0 auto;
     display: grid;
     grid-template-columns: calc(50% - 5px) 50%;
-    grid-template-rows: 456px auto;
+    grid-template-rows: 470px auto;
     grid-template-areas: 
         "area-1 area-2"
-        ". area-3";
+        "area-1 area-3";
     font-family: 'Rubik', sans-serif;
     font-size: 18px;
     font-weight: 400;
@@ -46,10 +46,12 @@ p {
 .config-menu  {
     grid-area: area-1;
     margin-right: 5px;
+    min-height: 470px;
+    height: max-content;
 }
 .config-checkout {
     grid-area: area-2;
-    justify-content: end;
+    height: 100%;
 }
 
 .tabs {
@@ -67,6 +69,7 @@ p {
     justify-content: center;
     align-content: center;
     cursor: pointer;
+    transition: background-color .25s;
 }
 .tab:hover {
     background-color: var(--green-2);
@@ -150,6 +153,7 @@ p {
     background-color: var(--gray-1);
     color: var(--gray-3);
     cursor: pointer;
+    transition: background-color .25s;
 }
 .duration__tab:hover {
     background-color: var(--green-2);
@@ -170,6 +174,7 @@ p {
     align-content: center;
     justify-content: center;
     padding: 28px 77px 25px 77px;
+    flex-grow: 1;
 }
 .sapmle__title,
 .sample__price {
@@ -253,6 +258,9 @@ p {
 .promocode {
     padding-left: 35px;
 }
+.promocode.bad {
+    border-color: var(--orange);
+}
 .promocode__button {
     position: absolute;
     top: 50%;
@@ -278,10 +286,18 @@ p {
     border: none;
     border-bottom-left-radius: var(--border-radius);
     border-bottom-right-radius: var(--border-radius);
+    box-sizing: border-box;
     cursor: pointer;
+    transition: background-color .25s;
 }
 .order.disabled {
     background-color: var(--gray-2);
+    pointer-events: none;
+}
+.orderInfo {
+    display: block;
+}
+.orderInfo.disabled {
     pointer-events: none;
 }
 
@@ -289,7 +305,10 @@ p {
     #app {
         width: 940px;
         grid-template-columns: calc(50% - 5px) 50%;
-        grid-template-rows: 450px auto;
+        grid-template-rows: 476px auto;
+    }
+    .config-menu {
+        min-height: 476px;
     }
     .calories {
         column-gap: 7px;
@@ -327,7 +346,7 @@ p {
     #app {
         width: 620px;
         grid-template-columns: 1fr;
-        grid-template-rows: 445px 455px auto;
+        grid-template-rows: auto 455px auto;
         grid-template-areas: 
             "area-1"
             "area-2"
@@ -335,6 +354,7 @@ p {
     }
     .config-menu {
         margin-right: 0;
+        min-height: auto;
     }
     .calories {
         column-gap: 9px;
@@ -371,7 +391,7 @@ p {
 @media screen and (max-width: 640px) {
     #app {
         width: 460px;
-        grid-template-rows: 460px 460px auto;
+        grid-template-rows: auto 460px auto;
     }
     .calories {
         column-gap: 5px;
@@ -405,7 +425,7 @@ p {
 @media screen and (max-width: 480px) {
     #app {
         width: 300px;
-        grid-template-rows: 732px 566px auto;
+        grid-template-rows: auto 566px auto;
     }
     .tabs {
         flex-flow: column;

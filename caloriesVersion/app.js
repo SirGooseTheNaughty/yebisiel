@@ -1,3 +1,79 @@
+Vue.component('tab', {
+    props: ['text', 'tabname'],
+    template: `
+        <div
+            :class="{ 'tab': true, 'active': this.getIsActive(tabname) }"
+            v-on:click="setTab(tabname)"
+        >
+            <p class="tab__upper">Баланс</p>
+            <p class="tab__lower">{{ text }}</p>
+        </div>
+    `,
+    methods: {
+        getIsActive: function(value) {
+            return this.$root.getIsActive('tab', value);
+        },
+        setTab: function(value) {
+            return this.$root.setProperty('tab', value);
+        }
+    }
+});
+Vue.component('ccal', {
+    props: ['text', 'tabname'],
+    template: `
+        <div
+            :class="{ 'ccal': true, 'active': this.getIsActive(tabname), 'disabled': this.getIsDisabled(tabname) }"
+            v-on:click="setTab(tabname)"
+        >{{ text }}</div>
+    `,
+    methods: {
+        getIsActive: function(value) {
+            return this.$root.getIsActive('ccal', value);
+        },
+        setTab: function(value) {
+            return this.$root.setProperty('ccal', value);
+        },
+        getIsDisabled: function(value) {
+            return this.$root.getIsDisabled(value);
+        }
+    }
+});
+Vue.component('duration', {
+    props: ['text', 'tabname'],
+    template: `
+        <div
+            :class="{ 'duration__tab': true, 'active': this.getIsActive(tabname) }"
+            v-on:click="setTab(tabname)"
+        >{{ text }}
+        </div>
+    `,
+    methods: {
+        getIsActive: function(value) {
+            return this.$root.getIsActive('duration', value);
+        },
+        setTab: function(value) {
+            return this.$root.setProperty('duration', value);
+        }
+    }
+});
+Vue.component('control-button', {
+    props: ['text', 'type', 'value'],
+    template: `
+        <div
+            :class="{ 'controls__button': true, 'active': this.getIsActive(type, value) }"
+            v-on:click="setTab(type, value)">{{ text }}
+        </div>
+    `,
+    methods: {
+        getIsActive: function(type, value) {
+            return this.$root.getIsActive(type, value);
+        },
+        setTab: function(type, value) {
+            return this.$root.setProperty(type, value);
+        }
+    }
+});
+
 const app = new Vue({
     el: '#app',
     data: {
@@ -6,18 +82,35 @@ const app = new Vue({
         duration: 'dur-0',
         delivery: 'morning',
         payment: 'card',
-        promocode: '',
         phone: '',
-        price: 13000,
-        pics: picsRelations,
-        promoResult: 'ready'
+        promocode: '',
+        promoStatus: 'ready',
+        discountType: '',
+        discount: 0
     },
     computed: {
         picsUrls: function () {
-            return this.pics[this.tab];
+            return picsRelations[this.tab];
         },
         promocodeButtonPic: function () {
-            return promoResults[this.promoResult];
+            return promoResults[this.promoStatus];
+        },
+        ccalText: function () {
+            return ccalTexts[this.ccal];
+        },
+        price: function () {
+            if (this.discount) {
+                if (this.discountType === 'percent') {
+                    return totalPrice = Math.floor(prices[this.ccal][this.duration] * (1 - this.discount / 100));
+                } else {
+                    return prices[this.ccal][this.duration] - this.discount;
+                }
+            }
+            return prices[this.ccal][this.duration];
+        },
+        orderLink: function () {
+            const price = prices[this.ccal][this.duration];
+            return  `#order:${orderDict.calories[this.ccal]} ${orderDict.duration[this.duration]} ${orderDict.delivery[this.delivery]}=${price}`;
         }
     },
     methods: {
@@ -32,28 +125,92 @@ const app = new Vue({
                 this.ccal = possibleCcals[this.tab][0];
             }
         },
-        getIsActive: function (classList) {
-            if (classList.includes('tab')) {
-                return classList.includes(this.tab);
-            }
-            if (classList.includes('ccal')) {
-                return classList.includes(this.ccal);
-            }
-            if (classList.includes('duration')) {
-                return classList.includes(this.duration);
-            }
-            if (classList.includes('delivery')) {
-                return classList.includes(this.delivery);
-            }
-            if (classList.includes('payment')) {
-                return classList.includes(this.payment);
-            }
+        getIsActive: function (selector, value) {
+            return value === this[selector];
         },
         getIsDisabled: function (ccal) {
             return !possibleCcals[this.tab].includes(ccal);
         },
-        inputValue: function (property) {
-            this[property] = this.value;
+        inputPromocode: function (e) {
+            this.promocode = e.target.value.toLowerCase();
+            this.discount = 0;
+            this.promoStatus = 'ready';
+        },
+        promocodeKeydown: function (e) {
+            if (e.key === 'Enter') {
+                this.enterPromocode();
+            }
+        },
+        enterPromocode: async function () {
+            const isValid = checkPromocodeInternally(this);
+            if (isValid) {
+                const res = await fetchPromocode (this.promocode);
+                if (res.message === 'OK') {
+                    this.promoStatus = 'ok';
+                    if (res.discountpercent) {
+                        this.discountType = 'percent';
+                        this.discount = res.discountpercent;
+                    } else {
+                        this.discountType = 'sum';
+                        this.discount = res.discountsum;
+                    }
+                    return;
+                }
+            }
+            this.discount = 0;
+            this.promoStatus = 'bad';
+        },
+        initiateCHeckout: function () {
+            fillBasket(this);
         }
+    }
+});
+
+async function fetchPromocode (code) {
+    const res = await fetch("https://forms.tildacdn.com/payment/promocode/", {
+        "headers": {
+            "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8"
+        },
+        "body": `promocode=${code}&projectid=${projectId}`,
+        "method": "POST"
+    });
+    return res.json();
+}
+
+function checkPromocodeInternally (app) {
+    const isPromocodeStricted = promoValues.findIndex(code => code.codes.includes(app.promocode)) !== -1;
+    if (!isPromocodeStricted) {
+        return true;
+    }
+    const validPromocodes = promoValues.filter(value => {
+        if (value.ccal && value.ccal !== app.ccal) {
+            return false;
+        }
+        if (value.duration && value.duration !== app.duration) {
+            return false;
+        }
+        return true;
+    });
+    if (validPromocodes.length) {
+        return true;
+    }
+    return false;
+}
+
+$('.phone').inputmask("+7 (999) 999-99-99", {
+    "oncomplete": function () {
+        $('.order').removeClass('disabled');
+        $('.orderInfo').removeClass('disabled');
+    },
+    "onincomplete": function () {
+        $('.order').addClass('disabled');
+        $('.orderInfo').addClass('disabled');
+    }
+});
+$('.phone').on('input', function() {
+    app.phone = this.value;
+    if (app.phone.split('').indexOf('_') !== -1) {
+        $('.order').addClass('disabled');
+        $('.orderInfo').addClass('disabled');
     }
 });
