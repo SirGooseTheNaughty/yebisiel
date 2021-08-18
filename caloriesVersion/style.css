@@ -16,9 +16,6 @@
     --border-radius: 15px;
 }
 
-body {
-    padding: 80px 0;
-}
 p {
     margin: 0;
 }
@@ -27,7 +24,7 @@ p {
     margin: 0 auto;
     display: grid;
     grid-template-columns: calc(50% - 5px) 50%;
-    grid-template-rows: 470px auto;
+    grid-template-rows: auto auto;
     grid-template-areas: 
         "area-1 area-2"
         "area-1 area-3";
@@ -117,7 +114,6 @@ p {
     background: linear-gradient(to bottom, var(--white) 90%, var(--green-6) 10%);
 }
 .ccal.disabled {
-    pointer-events: none;
     opacity: .6;
 }
 .ccal-text {
@@ -173,21 +169,23 @@ p {
     flex-flow: column;
     align-content: center;
     justify-content: center;
-    padding: 28px 77px 25px 77px;
+    padding: 40px 77px 28px 77px;
     flex-grow: 1;
 }
 .sapmle__title,
-.sample__price {
+.sample__price,
+.sample__profit {
     text-align: center;
 }
 .sapmle__title {
-    color: var(--gray-4);
-    font-weight: 600;
+    color: var(--gray-3);
+    font-weight: 500;
     margin-bottom: 18px;
+    text-transform: uppercase;
 }
 .sample__pics {
     display: grid;
-    place-items: end;
+    place-items: end center;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(2, 101px);
     grid-gap: 5px 6px;
@@ -199,10 +197,21 @@ p {
     max-height: 95%;
     user-select: none;
 }
+.sample__subprice {
+    display: flex;
+    justify-content: center;
+    font-size: 16px;
+    color: var(--gray-3);
+    min-height: 20px;
+    margin-top: 8px;
+}
 .sample__price {
     color: var(--green-6);
+    font-size: 20px;
+}
+.sample__weekly {
     font-weight: 500;
-    text-transform: uppercase;
+    margin-right: .6em;
 }
 
 .controls {
@@ -305,7 +314,6 @@ p {
     #app {
         width: 940px;
         grid-template-columns: calc(50% - 5px) 50%;
-        grid-template-rows: 476px auto;
     }
     .config-menu {
         min-height: 476px;
@@ -346,7 +354,7 @@ p {
     #app {
         width: 620px;
         grid-template-columns: 1fr;
-        grid-template-rows: auto 455px auto;
+        grid-template-rows: auto auto auto;
         grid-template-areas: 
             "area-1"
             "area-2"
@@ -391,7 +399,7 @@ p {
 @media screen and (max-width: 640px) {
     #app {
         width: 460px;
-        grid-template-rows: auto 460px auto;
+        grid-template-rows: auto auto auto;
     }
     .calories {
         column-gap: 5px;
@@ -425,7 +433,7 @@ p {
 @media screen and (max-width: 480px) {
     #app {
         width: 300px;
-        grid-template-rows: auto 566px auto;
+        grid-template-rows: auto auto auto;
     }
     .tabs {
         flex-flow: column;

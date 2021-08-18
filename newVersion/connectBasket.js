@@ -53,7 +53,7 @@ function fillBasket () {
         promoField.value = promocode;
         promoBtn.click();
     }
-    if (payment === 'card') {
+    if (payment === 'card' && tab !== 'avan') {     // т.к. авангард больше не оплачивается
         paymentCard.click();
     } else {
         paymentCash.click();

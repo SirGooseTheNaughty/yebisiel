@@ -79,7 +79,7 @@ const app = new Vue({
     data: {
         tab: 'body',
         ccal: 'ccal-1200',
-        duration: 'dur-0',
+        duration: 'dur-1',
         delivery: 'morning',
         payment: 'card',
         phone: '',
@@ -90,7 +90,7 @@ const app = new Vue({
     },
     computed: {
         picsUrls: function () {
-            return picsRelations[this.tab];
+            return picsRelations[this.ccal];
         },
         promocodeButtonPic: function () {
             return promoResults[this.promoStatus];
@@ -101,15 +101,24 @@ const app = new Vue({
         price: function () {
             if (this.discount) {
                 if (this.discountType === 'percent') {
-                    return totalPrice = Math.floor(prices[this.ccal][this.duration] * (1 - this.discount / 100));
+                    return totalPrice = Math.floor(prices[this.ccal][this.duration].price * (1 - this.discount / 100));
                 } else {
-                    return prices[this.ccal][this.duration] - this.discount;
+                    return prices[this.ccal][this.duration].price - this.discount;
                 }
             }
-            return prices[this.ccal][this.duration];
+            return prices[this.ccal][this.duration].price;
+        },
+        weekly: function () {
+            return prices[this.ccal][this.duration].weekly;
+        },
+        profit: function () {
+            if (prices[this.ccal][this.duration].profit) {
+                return `Ваша выгода: ${prices[this.ccal][this.duration].profit} Р`;
+            }
+            return;
         },
         orderLink: function () {
-            const price = prices[this.ccal][this.duration];
+            const price = prices[this.ccal][this.duration].price;
             return  `#order:${orderDict.calories[this.ccal]} ${orderDict.duration[this.duration]} ${orderDict.delivery[this.delivery]}=${price}`;
         }
     },
@@ -118,12 +127,17 @@ const app = new Vue({
             this[property] = value;
             if (property === 'tab') {
                 this.setPossibleCcal();
+            } else if (property === 'ccal') {
+                this.setCorrespondingTab(value);
             }
         },
         setPossibleCcal: function () {
             if (!possibleCcals[this.tab].includes(this.ccal)) {
                 this.ccal = possibleCcals[this.tab][0];
             }
+        },
+        setCorrespondingTab: function (value) {
+            this.setProperty('tab', correspondingTabs[value]);
         },
         getIsActive: function (selector, value) {
             return value === this[selector];
