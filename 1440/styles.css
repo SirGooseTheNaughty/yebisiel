@@ -1,0 +1,15 @@
+.dishPopup__icon {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    opacity: 0;
+    cursor: pointer;
+}
+.dishPicCont:hover .dishPopup__icon {
+    opacity: 1;
+}
+@media screen and (max-width: 1200px) {
+    .dishPopup__icon {
+        opacity: 1;
+    }
+}
