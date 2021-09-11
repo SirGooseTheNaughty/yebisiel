@@ -48,23 +48,26 @@ class Menus {
         document.addEventListener('DOMContentLoaded', () => {
             this.showCurrentTab();
             this.showCurrentTag();
-        })
+        });
+
+        window.addEventListener('resize', () => this.changeScreenTabs());
 
         this.changeScreenTabs();
     }
 
     changeScreenTabs = function() {
         if (this.isMobile()) {
-            this.tabs.home.desktop.style.display = 'none';
-            this.tabs.lite.desktop.style.display = 'none';
+            this.tabs.home.desktop.classList.add('hidden-menu');
+            this.tabs.lite.desktop.classList.add('hidden-menu');
             this.screenTabs.home = this.tabs.home.mobile;
             this.screenTabs.lite = this.tabs.lite.mobile;
         } else {
-            this.tabs.home.mobile.style.display = 'none';
-            this.tabs.lite.mobile.style.display = 'none';
+            this.tabs.home.mobile.classList.add('hidden-menu');
+            this.tabs.lite.mobile.classList.add('hidden-menu');
             this.screenTabs.home = this.tabs.home.desktop;
             this.screenTabs.lite = this.tabs.lite.desktop;
         }
+        this.showCurrentTab();
     }
 
     isMobile = function() {
@@ -101,8 +104,13 @@ class Menus {
     }
 
     showCurrentTab = function() {
-        this.screenTabs.home.style.display = this.tab === 'home' ? 'block' : 'none';
-        this.screenTabs.lite.style.display = this.tab === 'home' ? 'none' : 'block';
+        if (this.tab === 'home') {
+            this.screenTabs.home.classList.remove('hidden-menu');
+            this.screenTabs.lite.classList.add('hidden-menu');
+        } else {
+            this.screenTabs.home.classList.add('hidden-menu');
+            this.screenTabs.lite.classList.remove('hidden-menu');
+        }
     }
 }
 
