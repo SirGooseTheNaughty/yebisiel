@@ -41,7 +41,7 @@ function setNumDishesTabs () {
             }
         } else {
             numDishes[dishTab].style.display = 'grid';
-            numDishes[dishTab].textContent = tab !== 'lite' ? numDishTexts[dishTab] + drinkText : numDishTexts[dishTab];
+            numDishes[dishTab].textContent = numDishTexts[dishTab];
         }
     }
 }
@@ -102,7 +102,7 @@ function setActivePayment () {
 
 function setPrice () {
     const { tab, numDishes, daysSelection, numDays } = state;
-    const price = prices[tab][numDishes][daysSelection][numDays];
+    const price = prices[numDishes][daysSelection][numDays];
     state.set('price', price);
 }
 
@@ -199,14 +199,12 @@ function redrawDishPopup (e) {
 }
 
 function redrawDaytags () {
-    const { tab, numDishes, daysSelection } = state;
-    const { five, twenty } = prices[tab][numDishes][daysSelection];
-    const dividers = daysSelection === 'each' ? {five: 7, twenty: 28} : {five: 5, twenty: 20};
-    priceTags.five.textContent = `(${Math.floor(five / dividers.five)} р/день)`;
-    priceTags.twenty.textContent = `(${Math.floor(twenty / dividers.twenty)} р/день)`;
-    dayTags.five.textContent = dividers.five;
-    dayTags.twenty.textContent = dividers.twenty;
-    yourProfitTag.textContent = `Ваша выгода — ${4*five - twenty} р`;
+    const { numDays, numDishes, daysSelection } = state;
+    const { five, twenty } = prices[numDishes][daysSelection];
+    const divider = daysSelection === 'each' ? 7 : 5;
+    priceTags.five.textContent = `(${Math.floor(five / divider / 8)} р/день)`;
+    priceTags.twenty.textContent = `(${Math.floor(twenty / divider / 12)} р/день)`;
+    yourProfitTag.textContent = `Ваша выгода — ${profits[numDishes][daysSelection][numDays]} р`;
 }
 
 function changeYourProfitVisibility () {
@@ -216,8 +214,8 @@ function changeYourProfitVisibility () {
 
 function resetOrderInfo () {
     const { tab, numDishes, daysSelection, numDays } = state;
-    const price = prices[tab][numDishes][daysSelection][numDays];
-    orderInfoLink.setAttribute('href', `#order:${orderDict.menus[tab]}, ${orderDict.numDishes[numDishes]} ${orderDict.numDays[numDays][daysSelection]}=${price}`);
+    const price = prices[numDishes][daysSelection][numDays];
+    orderInfoLink.setAttribute('href', `#order:${orderDict.menus[tab]}, ${orderDict.numDishes[numDishes]}, ${orderDict.numDays[numDays][daysSelection]}=${price}`);
 }
 
 function handleOrder () {

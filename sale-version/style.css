@@ -126,7 +126,6 @@
     place-items: center;
     text-align: center;
     line-height: .9em;
-    padding: 0 28px;
     box-sizing: border-box;
     cursor: pointer;
     margin-right: 20px;
@@ -824,7 +823,6 @@
         width: 128px;
         height: 54px;
         font-size: 14px;
-        padding: 0 10px;
         line-height: 1.2em;
     }
     .dish.hit::after {
