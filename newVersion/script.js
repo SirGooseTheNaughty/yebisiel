@@ -175,12 +175,13 @@ function resetIconsEvents () {
 }
 
 function redrawDishPopup (e) {
-    const { tab, activeDish, day } = state;
+    const { tab, activeDish, day, numDishes } = state;
     if (activeDish == null) {
         dishPopup.popup.classList.add('hidden');
         return;
     };
-    const { name, weight, ing } = dishesInfo[tab][day][activeDish];
+    let dish = (numDishes === 'four' && activeDish) === 3 ? 4 : activeDish;
+    const { name, weight, ing } = dishesInfo[tab][day][dish];
     dishPopup.title.textContent = '' + name;
     dishPopup.weight.textContent = '' + weight;
     dishPopup.ing.textContent = '' + ing;
@@ -394,7 +395,7 @@ async function enterPromocode () {
 }
 
 function checkPromocodeInternally () {
-    const isPromocodeStricted = promoValues.findIndex(code => code.codes.includes(state.promocode)) !== -1;
+    const isPromocodeStricted = promoValues.findIndex(code => code.codes.map(code => code.toLowerCase()).includes(state.promocode)) !== -1;
     if (!isPromocodeStricted) {
         return true;
     }
